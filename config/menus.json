@@ -1,0 +1,54 @@
+{
+  "mainMenu": [
+    {
+      "name": "🏠 Home",
+      "link": "/home-03"
+    },
+    {
+      "name": "✍️ Blog",
+      "link": "/blog"
+    },
+    {
+      "name": "📃 Docs",
+      "link": "#"
+    },
+    {
+      "name": "⚙️ Components",
+      "link": "#"
+    },
+    {
+      "name": "⚉⚉⚉",
+      "link": "#",
+      "submenu": [
+        {
+          "name": "👨‍💻 Developers",
+          "link": "/devs"
+        },
+        {
+          "name": "📜 About Velora",
+          "link": "/about"
+        },
+        {
+          "name": "🔠 Categories",
+          "link": "/categories"
+        },
+        {
+          "name": "🏷️ Tags",
+          "link": "/tags"
+        },
+        {
+          "name": "🗃️ Archive",
+          "link": "/blog/archive"
+        },
+        {
+          "name": "🔒 Privacy",
+          "link": "/privacy"
+        },
+        {
+          "name": "✉️ Contact",
+          "link": "/contact"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+// footer style
+footer {
+  background: $white;
+  background: linear-gradient(180deg, $body-background 0%, $white 55%);
+  .icon-box a {
+    color: rgba($dark, 0.7);
+    @extend .rounded;
+    &:hover {
+      color: $white;
+      background-color: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+}
+.dark {
+  footer {
+    background: $body-background-dark;
+    background: linear-gradient(180deg, $body-background-dark 0%, #020b12 55%);
+  }
+}
+.footer-menu {
+  li {
+    position: relative;
+    &::after {
+      content: "|";
+      margin-right: 15px;
+      margin-left: 18px;
+    }
+    &:last-child::after {
+      display: none;
+    }
+    a {
+      color: rgba($dark, 0.7);
+      &:hover {
+        color: $color-primary;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.copyright-text {
+  color: rgba($dark, 0.7);
+  a {
+    color: rgba($dark, 0.7);
+  }
+}
+.dark {
+  .footer-menu {
+    li a {
+      color: rgba($white, 0.7);
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+  .copyright-text {
+    color: rgba($white, 0.7);
+    a {
+      color: rgba($white, 0.7);
+    }
+  }
+}

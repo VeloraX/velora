@@ -1,0 +1,26 @@
+{
+  "metaData": {
+    "title": "Velora | Empowering Elegance: Uniting Design & Flexibility",
+    "description": "Velora is a versatile front-end framework combining the power of Bulma and Tailwind CSS, providing an elegant and efficient solution for modern web development.",
+    "author": "Mikko",
+    "keywords": [
+      "Velora",
+      "Bulma",
+      "Tailwind CSS",
+      "frontend",
+      "framework",
+      "web development",
+      "responsive design",
+      "UI components"
+    ],
+    "ogImage": "https://ik.imagekit.io/velora/Logos/ogimage.jpg?updatedAt=1681033508147"
+  },
+  "baseURL": "https://velora.vercel.app/",
+  "logo": "/images/logo.png",
+  "logo_light": "/images/logo-light.png",
+  "logoText": "Velora",
+  "favicon": "/images/favicon.png",
+  "postPerPage": 6,
+  "postColumns": 2,
+  "copyright": "© 2023 Velora. All rights reserved."
+}
