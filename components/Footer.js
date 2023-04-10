@@ -100,11 +100,14 @@ export default function Footer() {
               </p>
               <p>
                 Site Version:{" "}
-                <button
-                  className="tw-text-neutral-100 tw-text-xs tw-leading-5 tw-font-semibold tw-bg-slate-800/50 tw-rounded-full tw-py-1 tw-px-3 tw-inline-flex tw-items-center tw-space-x-2 tw-hover:bg-slate-400/20 tw-dark:highlight-white/5"
-                  type="button"
-                >
-                  v{version}
+                <button className="tw-text-neutral-100 tw-text-xs tw-leading-5 tw-font-semibold tw-bg-slate-800/50 tw-rounded-full tw-py-1 tw-px-3 tw-inline-flex tw-items-center tw-space-x-2 tw-hover:bg-slate-400/20 tw-dark:highlight-white/5">
+                  <a
+                    href="https://reflinked.mikko.codes/86h"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    v{version}
+                  </a>
                 </button>
               </p>
             </div>
