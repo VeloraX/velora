@@ -248,12 +248,11 @@ export default function Header() {
                     <ul className="list-unstyled list-inline mb-0">
                       <li className="list-inline-item">
                         <button
-                          className="search-toggle"
+                          className="search-toggle tw-inline-flex tw--mb-5"
                           data-toggle="search"
                           aria-label="Search Toggle"
                           onClick={() => setSearchOpen(!searchOpen)}
                         >
-                          <span>Search</span>
                           <svg
                             width="22"
                             height="22"
@@ -281,7 +280,7 @@ export default function Header() {
                   </div>
 
                   <div
-                    className="color-scheme-toggler d-none d-lg-inline-block"
+                    className="color-scheme-toggler d-none d-lg-inline-block tw-mb-2"
                     onClick={() =>
                       setTheme(
                         theme === "dark" || resolvedTheme === "dark"
