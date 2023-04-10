@@ -76,8 +76,6 @@ export default function HeroSection() {
           height="506"
           src="https://www.youtube.com/embed/T-Zv73yZ_QI?disablekb=1&fs=0&modestbranding=1&playsinline=1&color=white&iv_load_policy=3"
           title="Tru shows how its done"
-          frameBorder="0"
-          // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
           className="tw-mx-auto"
         ></iframe>
