@@ -4,7 +4,7 @@ import "@/styles/globals.scss";
 import { ThemeProvider } from "next-themes";
 import { useEffect, useState } from "react";
 
-export default function QurnoApp({ Component, pageProps }) {
+export default function VeloraApp({ Component, pageProps }) {
   const [searchOpen, setSearchOpen] = useState("");
 
   useEffect(() => {

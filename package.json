@@ -2,7 +2,7 @@
   "name": "velora",
   "author": "MIkko",
   "description": "This is a blog where we post about velora, rants and other projects.",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "license": "MIT",
   "private": true,
   "repository": {
@@ -24,20 +24,28 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@iconify/icons-ic": "^1.2.13",
+    "@iconify/react": "^4.1.0",
     "@popperjs/core": "^2.11.5",
     "@tabler/icons": "^1.53.0",
     "bootstrap": "5.2.0",
+    "bulma": "^0.9.4",
     "gray-matter": "^4.0.3",
     "marked": "^4.0.12",
     "next": "12.1.0",
     "next-themes": "^0.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sass": "^1.49.0"
+    "sass": "^1.49.0",
+    "sharp": "^0.32.0",
+    "tailwind": "^4.0.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.14",
     "eslint": "8.8.0",
     "eslint-config-next": "12.0.9",
-    "husky": "^7.0.4"
+    "husky": "^7.0.4",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.1"
   }
 }
