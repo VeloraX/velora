@@ -38,16 +38,16 @@ export default function Post({
           </a>
         </Link>
 
-        <ul className="card-meta list-inline mb-3">
-          <li className="list-inline-item mt-2">
-            <i className="me-2">
+        <ul className="card-meta list-inline mb-3 tw-inline-block">
+          <li className="list-inline-item mt-2 tw-inline-block">
+            <i className="me-2 tw-inline-block">
               <IconCalendarEvent size={18} />
             </i>
             <span>{formatDate(date)}</span>
           </li>
-          <li className="list-inline-item mt-2">—</li>
-          <li className="list-inline-item mt-2">
-            <i className="me-2">
+          <li className="list-inline-item mt-2 tw-inline-block">—</li>
+          <li className="list-inline-item mt-2 tw-inline-block">
+            <i className="me-2 tw-inline-block">
               <IconClock size={18} />
             </i>
             <span>{readingTime(content)} min read</span>

@@ -70,14 +70,14 @@ export default function PostPage({
                   </li>
                   <li className="list-inline-item mt-2">—</li>
                   <li className="list-inline-item mt-2">
-                    <i className="me-2">
+                    <i className="me-2 tw-inline-block">
                       <IconClock size={18} />
                     </i>
                     <span>{readingTime(content)} min read</span>
                   </li>
                   <li className="list-inline-item mt-2">—</li>
                   <li className="list-inline-item mt-2">
-                    <i className="me-2">
+                    <i className="me-2 tw-inline-block">
                       <IconCalendarEvent size={18} />
                     </i>
                     <span>{formatDate(date)}</span>
