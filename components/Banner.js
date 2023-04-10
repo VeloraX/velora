@@ -58,7 +58,7 @@ export default function HeroSection() {
             </div>{" "}
             <br />
             <pre className="tw-bg-gray-800 tw-text-orange-400 tw-p-4 tw-rounded tw-mb-6 tw-w-80 ">
-              <code>npm install bulma</code>
+              <code>npm install velora</code>
             </pre>
             <p />
             <div className="tw-mb-6">
