@@ -1,35 +1,35 @@
 {
   "mainMenu": [
     {
-      "name": "🏠 Home",
+      "name": "🏡 Home",
       "link": "/home-03"
     },
     {
-      "name": "✍️ Blog",
+      "name": "🖊️ Blog",
       "link": "/blog"
     },
     {
-      "name": "📃 Docs",
+      "name": "📚 Docs",
       "link": "#"
     },
     {
-      "name": "⚙️ Components",
+      "name": "🔧 Components",
       "link": "#"
     },
     {
-      "name": "⚉⚉⚉",
+      "name": "⋮",
       "link": "#",
       "submenu": [
         {
-          "name": "👨‍💻 Developers",
-          "link": "/devs"
+          "name": "👩‍💻 Developers",
+          "link": "/author"
         },
         {
-          "name": "📜 About Velora",
+          "name": "📝 About Velora",
           "link": "/about"
         },
         {
-          "name": "🔠 Categories",
+          "name": "🔤 Categories",
           "link": "/categories"
         },
         {
@@ -37,15 +37,15 @@
           "link": "/tags"
         },
         {
-          "name": "🗃️ Archive",
+          "name": "📂 Archive",
           "link": "/blog/archive"
         },
         {
-          "name": "🔒 Privacy",
+          "name": "🔐 Privacy",
           "link": "/privacy"
         },
         {
-          "name": "✉️ Contact",
+          "name": "📧 Contact",
           "link": "/contact"
         }
       ]
