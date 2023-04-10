@@ -80,7 +80,6 @@ export default function HeroSection() {
               className="tw-mx-auto"
             ></iframe>
 <p className="tw-text-sm tw-flex tw-justify-end tw-items-end tw-py-12">
-  Video by:
   <a
     href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa21ZYVpRVWZ3MC1mX3pqNWk0N1V0VGdWZHBDZ3xBQ3Jtc0tsYWNINklzYWVMWXB6Tk9LWE5IcFREdk5PNFN3U0hubmwzVmpQWE5mNFhqYnUzRl9ZS21Vd2ZMX0hNOHJ5OGM0OWRLb3JNUzFZZnJydlo0SS1rWTlwOFdsb2lNbEhxcTh2WUJ6clZUbFR2cjV5cHdGVQ&q=https%3A%2F%2Ftwitter.com%2Ftrunarla&v=T-Zv73yZ_QI"
     target="_blank"
