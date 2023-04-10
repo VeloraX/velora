@@ -1,8 +1,16 @@
+import { useEffect, useState } from "react";
+import packageJson from "../package.json";
 import siteConfig from "@/config/site.config.json";
 import subscription from "@/config/subscription.json";
 import { IconUserPlus } from "@tabler/icons";
 
 export default function Footer() {
+  const [version, setVersion] = useState("");
+
+  useEffect(() => {
+    setVersion(packageJson.version);
+  }, []);
+
   const mailchimpCode = `
     !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/a0013b0a02af72f590f1e7178/9263a0c9452c2b999c46dfaca.js");
   `;
@@ -34,7 +42,7 @@ export default function Footer() {
                       <input
                         type="email"
                         name="EMAIL"
-                        className="form-control required email w-auto text-center text-sm-start"
+                        className="form-control required email w-auto text-center text-sm-start tw-shadow-md"
                         id="mce-EMAIL"
                         placeholder={subscription.formPlaceholder}
                         aria-label="Subscription"
@@ -68,7 +76,7 @@ export default function Footer() {
                           type="submit"
                           name="subscribe"
                           id="mc-embedded-subscribe"
-                          className="input-group-text w-100 justify-content-center"
+                          className="input-group-text w-100 justify-content-center tw-shadow-md"
                           aria-label="Subscription Button"
                         >
                           <i className="me-2">
@@ -90,14 +98,20 @@ export default function Footer() {
               <p className="mb-0 copyright-text content">
                 {siteConfig.copyright}
               </p>
+              <p>
+                Site Version:{" "}
+                <button
+                  className="tw-text-neutral-100 tw-text-xs tw-leading-5 tw-font-semibold tw-bg-slate-800/50 tw-rounded-full tw-py-1 tw-px-3 tw-inline-flex tw-items-center tw-space-x-2 tw-hover:bg-slate-400/20 tw-dark:highlight-white/5"
+                  type="button"
+                >
+                  v{version}
+                </button>
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <script
-        id="mcjs"
-        dangerouslySetInnerHTML={{ __html: mailchimpCode }}
-      />
+      <script id="mcjs" dangerouslySetInnerHTML={{ __html: mailchimpCode }} />
     </footer>
   );
 }
