@@ -70,9 +70,9 @@ export default function HeroSection() {
           </button>
         </div>
       </div>
-      <div className="tw-w-full tw-drop-shadow-[0_35px_35px_rgba(0,0,0,0.60)] tw--ml-11">
+      <div className="tw-w-full tw-drop-shadow-[0_35px_35px_rgba(0,0,0,0.60)] tw--ml-6">
         <iframe
-          width="900"
+          width="850"
           height="506"
           src="https://www.youtube.com/embed/T-Zv73yZ_QI?disablekb=1&fs=0&modestbranding=1&playsinline=1&color=white&iv_load_policy=3"
           title="Tru shows how its done"
