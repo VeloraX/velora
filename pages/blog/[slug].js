@@ -31,10 +31,6 @@ export default function PostPage({
   let pageUrl = `${siteConfig.baseURL.replace(/\/$|$/, "/")}blog/${slug}`;
   return (
     <Layout metaTitle={title} metaDescription={description} ogImage={image}>
-
-
-
-
       <section className="section-sm pb-0">
         <div className="container">
           <div className="row justify-content">
@@ -49,7 +45,6 @@ export default function PostPage({
                   quality={100}
                   placeholder="blur"
                   blurDataURL={image}
-
                 />
                 <div className="post-hero-overlay">
                   <div className="post-hero-content tw-pl-60">
@@ -84,40 +79,21 @@ export default function PostPage({
               </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div className="col-lg-8 post-content-block order-0 order-lg-2 mx-auto">
-              <div
-                className="content text-justify"
-                dangerouslySetInnerHTML={{ __html: marked.parse(content) }}
-              ></div>
+            <div className="col-lg-8 tw-ml-24">
+              {/* Post section */}
+              <div className="post-content">
+                <div
+                  className="content text-justify"
+                  dangerouslySetInnerHTML={{ __html: marked.parse(content) }}
+                ></div>
+              </div>
             </div>
-          </div>
 
-
-          {/* Author section */}
-          <div className="single-post-author">
-            <div className="row justify-content">
-              <div className="col-lg-10">
-                <div className="d-block d-md-flex">
-                  <Link
-                    href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}
-                  >
+            <div className="col-lg-3 tw-relative tw-left-28">
+              {/* Author section */}
+              <div className="tw-sticky tw-top-4">
+                <div className="tw-d-block tw-d-md-flex tw-w-full tw-ml-11 tw-mt-2.5">
+                  <Link href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}>
                     <a>
                       {authors.map((authorPage, i) =>
                         author.replace(/ /g, "-").toLowerCase() ===
@@ -126,11 +102,11 @@ export default function PostPage({
                             <Image
                               src={authorPage.authorFrontMatter.image}
                               alt={author}
-                              width="155"
-                              height="155"
+                              width="200"
+                              height="200"
                               layout="fixed"
-                              className="rounded mr-4"
-                              placeholder="blur"
+                              className="tw-rounded tw-mr-4 tw-shadow-md"
+                              placeholder="tw-blur"
                               blurDataURL={authorPage.authorFrontMatter.image}
                             />
                           </span>
@@ -140,61 +116,61 @@ export default function PostPage({
                       )}
                     </a>
                   </Link>
-                  <div className="ms-0 ms-md-4 ps-0 ps-md-3 mt-4 mt-md-0">
-                    <h3 className="h4 mb-3">
-                      <Link
-                        href={`/author/${author
-                          .replace(/ /g, "-")
-                          .toLowerCase()}`}
-                      >
-                        <a className="text-dark">{author}</a>
-                      </Link>
-                    </h3>
-                    {authors.map((authorPage, i) =>
-                      author.replace(/ /g, "-").toLowerCase() ===
-                        authorPage.authorSlug ? (
-                        <div
-                          key={i}
-                          dangerouslySetInnerHTML={{
-                            __html: marked.parse(
-                              truncateString(authorPage.authorContent, 150)
-                            ),
-                          }}
-                        ></div>
-                      ) : (
-                        ""
-                      )
-                    )}
-                    <div className="content">
-                      <Link
-                        href={`/author/${author
-                          .replace(/ /g, "-")
-                          .toLowerCase()}`}
-                      >
-                        <a className="text-dark">
-                          See all posts by this author{" "}
-                          <i>
-                            <IconArrowUpRight size={20} />
-                          </i>
-                        </a>
-                      </Link>
+                </div>
+                <div className="tw-p-5">
+                  <div className="tw-flex tw-pb-3 tw-text-2xl tw-items-center">
+                    <i className="tw-text-gray-500 tw-ml-auto far fa-heart" />
+                  </div>
+                  <p className="tw-text-gray-500">
+                    <div className="ms-0 ms-md-4 ps-0 ps-md-3 mt-4 mt-md-0">
+                      <h3 className="h4 tw-mb-3 tw--ml-3.5 tw-relative tw-bottom-6">
+                        <Link
+                          href={`/author/${author
+                            .replace(/ /g, "-")
+                            .toLowerCase()}`}
+                        >
+                          <a className="tw-text-slate-500">{author}</a>
+                        </Link>
+                      </h3>
+                      <div className="tw--ml-6">
+                        {authors.map((authorPage, i) =>
+                          author.replace(/ /g, "-").toLowerCase() ===
+                            authorPage.authorSlug ? (
+                            <div
+                              key={i}
+                              dangerouslySetInnerHTML={{
+                                __html: marked.parse(
+                                  truncateString(authorPage.authorContent, 150)
+                                ),
+                              }}
+                            ></div>
+                          ) : (
+                            ""
+                          )
+                        )}
+                        <Link href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}>
+                          <a className="tw-text-slate-500 tw-hover:text-blue-700 tw-font-semi-bold">
+                            About {`${author.replace(/ /g, " ")}`} ↬
+                          </a>
+                        </Link>
+                      </div>
+
                     </div>
+                  </p>
+                  <div>
+                  <br />
+                    <span className="tw-text-gray-500 tw-ml-16">Follow This Dev</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section >
-
-
-
-
-
-
-
+      </section>
       {useScripts("/js/lightense/lightense.min.js", "body", true)}
-    </Layout >
+    </Layout>
+
+
   );
 }
 
