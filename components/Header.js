@@ -74,6 +74,7 @@ export default function Header() {
 
   return (
     <>
+      <script src="https://kit.fontawesome.com/030cb1e2a7.js" crossOrigin="anonymous" async />
       <div className="header-height-fix"></div>
       <header className="header-nav">
         <div className="container">

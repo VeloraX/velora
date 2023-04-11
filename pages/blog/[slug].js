@@ -2,16 +2,24 @@ import Layout from "@/components/Layout";
 import useScripts from "@/components/Scripts";
 import siteConfig from "@/config/site.config.json";
 import { getAuthors } from "@/libs/getAuthors";
+import { getPosts } from "@/libs/getPosts";
 import { formatDate } from "@/utils/formatDate";
 import { readingTime } from "@/utils/readingTime";
 import { truncateString } from "@/utils/truncateString";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+import "@fortawesome/fontawesome-free/css/all.css";
 import {
-  IconArrowUpRight,
-  IconBrandFacebook,
-  IconBrandLinkedin,
-  IconBrandPinterest,
-  IconBrandReddit,
-  IconBrandTwitter,
+  faTwitter,
+  faFacebook,
+  faLinkedinIn,
+  faReddit,
+  faPinterest,
+} from "@fortawesome/free-brands-svg-icons";
+
+import {
   IconCalendarEvent,
   IconClock,
 } from "@tabler/icons";
@@ -27,10 +35,17 @@ export default function PostPage({
   content,
   frontMatter: { title, author, date, image, description, tags },
   authors,
+  postCount,
 }) {
+
   let pageUrl = `${siteConfig.baseURL.replace(/\/$|$/, "/")}blog/${slug}`;
   return (
     <Layout metaTitle={title} metaDescription={description} ogImage={image}>
+    <i className="fab fa-twitter text-blue-500"></i>
+<i className="fab fa-facebook text-blue-500"></i>
+<i className="fab fa-linkedin-in text-blue-500"></i>
+<i className="fab fa-reddit text-blue-500"></i>
+<i className="fab fa-pinterest text-red-500"></i>
       <section className="section-sm pb-0">
         <div className="container">
           <div className="row justify-content">
@@ -80,7 +95,7 @@ export default function PostPage({
             </div>
 
             <div className="col-lg-8 tw-ml-24">
-              {/* Post section */}
+
               <div className="post-content">
                 <div
                   className="content text-justify"
@@ -90,9 +105,14 @@ export default function PostPage({
             </div>
 
             <div className="col-lg-3 tw-relative tw-left-28">
-              {/* Author section */}
+            <h4>
+            <a className="tw-text-slate-500 tw-ml-10">{author}
+            </a>
+            </h4>
+
               <div className="tw-sticky tw-top-4">
                 <div className="tw-d-block tw-d-md-flex tw-w-full tw-ml-11 tw-mt-2.5">
+                
                   <Link href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}>
                     <a>
                       {authors.map((authorPage, i) =>
@@ -110,28 +130,25 @@ export default function PostPage({
                               blurDataURL={authorPage.authorFrontMatter.image}
                             />
                           </span>
+                          
                         ) : (
                           ""
                         )
                       )}
                     </a>
                   </Link>
+                  
                 </div>
                 <div className="tw-p-5">
-                  <div className="tw-flex tw-pb-3 tw-text-2xl tw-items-center">
-                    <i className="tw-text-gray-500 tw-ml-auto far fa-heart" />
-                  </div>
+
                   <p className="tw-text-gray-500">
                     <div className="ms-0 ms-md-4 ps-0 ps-md-3 mt-4 mt-md-0">
-                      <h3 className="h4 tw-mb-3 tw--ml-3.5 tw-relative tw-bottom-6">
-                        <Link
-                          href={`/author/${author
-                            .replace(/ /g, "-")
-                            .toLowerCase()}`}
-                        >
-                          <a className="tw-text-slate-500">{author}</a>
-                        </Link>
-                      </h3>
+                      <div className="h4 tw-mb-3 tw--ml-3.5 tw-relative tw-bottom-6">
+
+                         <span className="tw-text-sm tw-text-gray-500"> This Dev Contributed <span className="tw-font-bold">{postCount[author]} Articles</span></span>
+                        
+                      </div>
+                      
                       <div className="tw--ml-6">
                         {authors.map((authorPage, i) =>
                           author.replace(/ /g, "-").toLowerCase() ===
@@ -149,23 +166,92 @@ export default function PostPage({
                           )
                         )}
                         <Link href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}>
-                          <a className="tw-text-slate-500 tw-hover:text-blue-700 tw-font-semi-bold">
-                            About {`${author.replace(/ /g, " ")}`} ↬
-                          </a>
-                        </Link>
+  <a
+    className="tw-text-slate-500 tw-hover:text-blue-700 tw-font-semi-bold"
+    style={{
+      background: `linear-gradient(to right, #434C5E, #4C566A, #E5E9F0, #ECEFF4)`,
+      backgroundSize: "100% 1px",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "bottom",
+      paddingBottom: "2px",
+    }}
+  >
+    About <i className="fa-solid fa-arrow-trend-up" />  {`${author.replace(/ /g, " ")}`}
+  </a>
+</Link>
+
                       </div>
 
                     </div>
                   </p>
                   <div>
-                  <br />
-                    <span className="tw-text-gray-500 tw-ml-16">Follow This Dev</span>
+                     
+                    <i className="tw-text-gray-500 tw-ml-auto far fa-heart" />
+                    <ul className="social-share icon-box">
+  <li className="tw-d-inline-block tw-d-lg-block tw-me-2 tw-mb-2">
+    <a
+      href={`https://twitter.com/intent/tweet?text=${title}&url=${pageUrl}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i className="fab fa-twitter text-blue-500"></i>
+    </a>
+  </li>
+  <li className="tw-d-inline-block tw-d-lg-block tw-me-2 tw-mb-2">
+    <a
+      href={`https://www.facebook.com/sharer.php?u=${pageUrl}&quote=${title}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i className="fab fa-facebook text-blue-500"></i>
+    </a>
+  </li>
+  <li className="tw-d-inline-block tw-d-lg-block tw-me-2 tw-mb-2">
+    <a
+      href={`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i className="fab fa-linkedin-in text-blue-500"></i>
+    </a>
+  </li>
+  <li className="tw-d-inline-block tw-d-lg-block tw-me-2 tw-mb-2">
+    <a
+      href={`https://www.reddit.com/submit?url=${pageUrl}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i className="fab fa-reddit text-blue-500"></i>
+    </a>
+  </li>
+  <li className="tw-d-inline-block tw-d-lg-block tw-me-2 tw-mb-2">
+    <a
+      href={`https://www.pinterest.com/pin/create/button/?&text=${title}&url=${pageUrl}&description=${title}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i className="fab fa-pinterest text-red-500"></i>
+    </a>
+  </li>
+</ul>
+
+
+
+
+
+                    
+                  </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        
+
+
+
+
+
       </section>
       {useScripts("/js/lightense/lightense.min.js", "body", true)}
     </Layout>
@@ -190,13 +276,27 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({ params }) {
+  const { slug } = params;
+
   const fileContents = fs.readFileSync(
     path.join("content/blog", slug + ".md"),
     "utf8"
   );
 
+  
+
   const { data: frontMatter, content } = matter(fileContents);
+
+  
+  const posts = await getPosts();
+
+
+  const allAuthor = posts.map((post) => post.frontMatter.author);
+  const postCount = {};
+  allAuthor.forEach((x) => {
+    postCount[x] = (postCount[x] || 0) + 1;
+  });
 
   return {
     props: {
@@ -204,6 +304,9 @@ export async function getStaticProps({ params: { slug } }) {
       frontMatter,
       content,
       authors: getAuthors(),
+      posts: getPosts(),
+      postCount,
     },
   };
 }
+

@@ -479,3 +479,29 @@
   border-radius: 4px;
   font-size: 14px;
 }
+
+.author-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.social-share-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.social-share {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.social-share li {
+  margin-right: 1rem;
+}
+
+.social-share li:last-child {
+  margin-right: 0;
+}

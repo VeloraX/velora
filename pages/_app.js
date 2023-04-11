@@ -3,18 +3,11 @@ import "@/styles/bootstrap.scss";
 import "@/styles/globals.scss";
 import { ThemeProvider } from "next-themes";
 import { useEffect, useState } from "react";
-// import Font Awesome CSS
-// import Font Awesome CSS
-import "@fortawesome/fontawesome-svg-core/styles.css"; 
-
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-// Tell Font Awesome to skip adding the CSS automatically 
-// since it's already imported above
-config.autoAddCss = false; 
+config.autoAddCss = false;
+import "@fortawesome/fontawesome-free/css/all.css";
 
-const App = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
-};
 
 export default function VeloraApp({ Component, pageProps }) {
   const [searchOpen, setSearchOpen] = useState("");
