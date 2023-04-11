@@ -4,6 +4,6 @@ This section will be updated as we mosey along.
 
 
 
-![MIT License][def]
+![MIT License](https://github.com/VeloraX/velora/blob/main/LICENSE)[def]
 
-[def]: https://img.shields.io/static/v1.svg?label=📜%20https://github.com/VeloraX/velora/blob/main/LICENSE&message=MIT&color=informational
+[def]: https://img.shields.io/static/v1.svg?label=📜%20&message=MIT&color=informational
