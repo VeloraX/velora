@@ -40,7 +40,7 @@ export default function Footer() {
                       className="input-group flex-column flex-sm-row flex-nowrap flex-sm-nowrap"
                     >
                       <input
-                        type="email"
+                        type="input"
                         name="EMAIL"
                         className="form-control required email w-auto text-center text-sm-start tw-shadow-md"
                         id="mce-EMAIL"

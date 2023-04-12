@@ -5,10 +5,11 @@ const nextConfig = {
     defaultLocale: "en",
   },
   images: {
-    domains: ['ik.imagekit.io'],
+    domains: ["ik.imagekit.io"],
+  },
+  socials: {
+    domains: ["twitter.com"],
   },
 };
-
-
 
 module.exports = nextConfig;

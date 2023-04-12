@@ -13,13 +13,13 @@
       "responsive design",
       "UI components"
     ],
-    "ogImage": "https://ik.imagekit.io/velora/Logos/ogimage.jpg?updatedAt=1681033508147"
+    "ogImage": "https://velora.site/public/images/ogimage.jpg"
   },
-  "baseURL": "https://velora.vercel.app/",
+  "baseURL": "https://velora.site",
   "logo": "/images/logo.png",
   "logo_light": "/images/logo-light.png",
   "logoText": "Velora",
-  "favicon": "/images/favicon.png",
+  "favicon": "/images/bulma_ico_png.png",
   "postPerPage": 6,
   "postColumns": 2,
   "copyright": "© 2023 Velora. All rights reserved."
