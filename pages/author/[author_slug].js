@@ -32,12 +32,11 @@ export default function AuthorSingle({
               <div className="row g-4 g-lg-5 text-center text-lg-start justify-content-center justify-content-lg-start">
                 <div className="col-lg-3 col-md-4 col-sm-5 col-6">
                   <Image
-                    className="rounded"
+                    className="rounded img-fluid"
                     src={image}
                     alt={title}
                     width={`250`}
                     height={`250`}
-                    layout="responsive"
                     placeholder="blur"
                     blurDataURL={image}
                   />

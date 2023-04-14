@@ -32,5 +32,4 @@ intro:
 # if "enable: false" authors/writers will not show on the about page
 our_writers:
   enable: true
- 
 ---

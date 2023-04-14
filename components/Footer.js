@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import packageJson from "../package.json";
 import siteConfig from "@/config/site.config.json";
 import subscription from "@/config/subscription.json";
-import { IconUserPlus } from "@tabler/icons";
+import { IconUserPlus } from "@tabler/icons-react";
 
 export default function Footer() {
   const [version, setVersion] = useState("");

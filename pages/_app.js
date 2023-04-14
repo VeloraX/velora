@@ -1,10 +1,11 @@
 import { AppContext } from "@/components/UseContext";
 import "@/styles/bootstrap.scss";
 import "@/styles/globals.scss";
+import "@/tailwind";
 import { ThemeProvider } from "next-themes";
 import { useEffect, useState } from "react";
 
-export default function VeloraApp({ Component, pageProps }) {
+export default function QurnoApp({ Component, pageProps }) {
   const [searchOpen, setSearchOpen] = useState("");
 
   useEffect(() => {
@@ -13,6 +14,7 @@ export default function VeloraApp({ Component, pageProps }) {
 
   return (
     <AppContext.Provider
+      // codiga-disable
       value={{
         toggleSearch: [searchOpen, setSearchOpen],
       }}

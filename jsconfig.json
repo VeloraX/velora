@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["components/*"],
+      "@/tailwind": ["styles/globals.css"],
       "@/styles/*": ["styles/*"],
       "@/config/*": ["config/*"],
       "@/utils/*": ["utils/*"],

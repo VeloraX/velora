@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import PageHeaderTaxo from "@/components/PageHeaderTaxonomy";
 import { getPosts } from "@/libs/getPosts";
 import { getSinglePage } from "@/libs/getSinglePage";
-import { IconArchive } from "@tabler/icons";
+import { IconArchive } from "@tabler/icons-react";
 import Link from "next/link";
 
 export default function Archive({ posts, archive: { frontMatter } }) {
@@ -56,7 +56,7 @@ export default function Archive({ posts, archive: { frontMatter } }) {
                         </span>
                         <span>•</span>
                         <Link href={`/blog/${post.slug}`}>
-                          <a>{post.frontMatter.title}</a>
+                          {post.frontMatter.title}
                         </Link>
                       </div>
                     ) : null

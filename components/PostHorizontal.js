@@ -1,7 +1,7 @@
 import { formatDate } from "@/utils/formatDate";
 import { readingTime } from "@/utils/readingTime";
 import { truncateString } from "@/utils/truncateString";
-import { IconCalendarEvent, IconClock } from "@tabler/icons";
+import { IconCalendarEvent, IconClock } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,21 +18,18 @@ export default function PostHorizontal({
       <article className="card post-card h-100 border-0 bg-transparent">
         <div className="row">
           <div className="col-lg-6">
-            <Link href={`/blog/${slug}`}>
-              <a className="d-block" title={title}>
-                <div className="post-image position-relative">
-                  <Image
-                    className="rounded"
-                    src={image}
-                    alt={title}
-                    width={`790`}
-                    height={`500`}
-                    layout="responsive"
-                    placeholder="blur"
-                    blurDataURL={image}
-                  />
-                </div>
-              </a>
+            <Link href={`/blog/${slug}`} className="d-block" title={title}>
+              <div className="post-image position-relative">
+                <Image
+                  className="rounded img-fluid"
+                  src={image}
+                  alt={title}
+                  width={`650`}
+                  height={`335`}
+                  placeholder="blur"
+                  blurDataURL={image}
+                />
+              </div>
             </Link>
           </div>
           <div className="col-lg-6">
@@ -54,10 +51,8 @@ export default function PostHorizontal({
                   </li>
                 </ul>
 
-                <Link href={`/blog/${slug}`}>
-                  <a className="d-block" title={title}>
-                    <h3 className="post-title mb-3">{title}</h3>
-                  </a>
+                <Link href={`/blog/${slug}`} className="d-block" title={title}>
+                  <h3 className="post-title mb-3">{title}</h3>
                 </Link>
                 <p>{truncateString(description, 150)}</p>
               </div>
@@ -68,31 +63,27 @@ export default function PostHorizontal({
                       href={`/author/${author
                         .replace(/ /g, "-")
                         .toLowerCase()}`}
+                      className="card-meta-author"
+                      title={`Read all posts by - ${author}`}
                     >
-                      <a
-                        className="card-meta-author"
-                        title={`Read all posts by - ${author}`}
-                      >
-                        {authors.map((authorPage, i) =>
-                          author.replace(/ /g, "-").toLowerCase() ===
-                          authorPage.authorSlug ? (
-                            <span key={i}>
-                              <Image
-                                src={authorPage.authorFrontMatter.image}
-                                alt={author}
-                                width="26"
-                                height="26"
-                                layout="fixed"
-                              />
-                            </span>
-                          ) : (
-                            ""
-                          )
-                        )}
-                        <i className="d-inline-block ms-2 ps-1 fst-normal">
-                          by <span>{author.split(" ")[0]}</span>
-                        </i>
-                      </a>
+                      {authors.map((authorPage, i) =>
+                        author.replace(/ /g, "-").toLowerCase() ===
+                        authorPage.authorSlug ? (
+                          <span key={i}>
+                            <Image
+                              src={authorPage.authorFrontMatter.image}
+                              alt={author}
+                              width="26"
+                              height="26"
+                            />
+                          </span>
+                        ) : (
+                          ""
+                        )
+                      )}
+                      <i className="d-inline-block ms-2 ps-1 fst-normal">
+                        by <span>{author.split(" ")[0]}</span>
+                      </i>
                     </Link>
                   </li>
                   <li className="list-inline-item mt-2">•</li>
@@ -103,7 +94,7 @@ export default function PostHorizontal({
                           <Link
                             href={`/tags/${t.replace(/ /g, "-").toLowerCase()}`}
                           >
-                            <a>{t}</a>
+                            {t}
                           </Link>
                         </li>
                       ))}

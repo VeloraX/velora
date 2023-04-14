@@ -7,8 +7,8 @@ const nextConfig = {
   images: {
     domains: ["ik.imagekit.io"],
   },
-  socials: {
-    domains: ["twitter.com"],
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 };
 

@@ -2,7 +2,11 @@ import Layout from "@/components/Layout";
 import PageHeaderBlock from "@/components/PageHeader";
 import contactForm from "@/config/contactForm.json";
 import { getSinglePage } from "@/libs/getSinglePage";
-import { IconBrandTelegram, IconMailForward, IconPhone } from "@tabler/icons";
+import {
+  IconBrandTelegram,
+  IconMailForward,
+  IconPhone,
+} from "@tabler/icons-react";
 import { marked } from "marked";
 
 export default function Contact({ contact: { frontMatter } }) {

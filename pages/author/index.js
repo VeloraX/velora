@@ -5,7 +5,7 @@ import Post from "@/components/Post";
 import siteConfig from "@/config/site.config.json";
 import { getAuthors } from "@/libs/getAuthors";
 import { getPosts } from "@/libs/getPosts";
-import { IconNewSection } from "@tabler/icons";
+import { IconNewSection } from "@tabler/icons-react";
 import Link from "next/link";
 
 export default function Authors({ authors, posts }) {
@@ -67,13 +67,15 @@ export default function Authors({ authors, posts }) {
             ))}
 
             <div className="col-12 text-center">
-              <Link href={`/blog`}>
-                <a className="btn btn-primary mt-5" aria-label="View all posts">
-                  <i className="me-2">
-                    <IconNewSection size={16} />
-                  </i>
-                  View all posts
-                </a>
+              <Link
+                href={`/blog`}
+                className="btn btn-primary mt-5"
+                aria-label="View all posts"
+              >
+                <i className="me-2">
+                  <IconNewSection size={16} />
+                </i>
+                View all posts
               </Link>
             </div>
           </div>

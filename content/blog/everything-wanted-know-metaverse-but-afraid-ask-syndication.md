@@ -13,6 +13,7 @@ In the wake of Facebook rebranding as Meta, reflecting its focus on the “metav
 Meta has proposed that the metaverse will eventually allow us to engage across education, work and social contexts, while Microsoft looks to be focusing specifically on the realm of the virtual office for now.
 
 ### In the wake of Facebook rebranding as Meta
+
 Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
 
 > You can buy attention (advertising). You can beg for attention from the media (PR). You can bug people one at a time to get attention (sales).

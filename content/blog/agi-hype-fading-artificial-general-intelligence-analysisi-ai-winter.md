@@ -17,6 +17,7 @@ While futurists and fundraisers used to make bullish predictions about artificia
 While futurists and fundraisers used to make bullish predictions about artificial general intelligence, they’ve become quieter lately. Peter Thiel — the tech billionaire and rumored vampire — says Silicon Valley big brains have lost enthusiasm for AGI.
 
 ### IT is healing
+
 Can self-healing security software fight cybercrime?
 
 Thiel described Musk as “a weathervane for the zeitgeist,” who’s stopped talking about AGI because interest has declined.

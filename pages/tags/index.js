@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import PageHeaderBlock from '@/components/PageHeader';
-import Layout from '@/components/Layout';
-import { getPosts } from '@/libs/getPosts';
-import { IconTags } from '@tabler/icons';
+import Layout from "@/components/Layout";
+import PageHeaderBlock from "@/components/PageHeader";
+import { getPosts } from "@/libs/getPosts";
+import { IconTags } from '@tabler/icons-react';
+import Link from "next/link";
 
 export default function Tags({ posts }) {
   const allTags = posts.map((tag) => tag.frontMatter.tags);
@@ -31,14 +31,15 @@ export default function Tags({ posts }) {
         <div className="row g-4 justify-content-center text-center">
           {uniqueTags.map((tag, i) => (
             <div key={i} className="col-lg-4 col-md-6">
-              <Link href={`/tags/${tag.replace(/ /g, '-').toLowerCase()}`}>
-                <a className="p-4 rounded bg-white d-block is-hoverable">
-                  <i className="mt-1 mb-2 d-inline-block">
-                    <IconTags size={30} />
-                  </i>
-                  <span className="h4 mt-2 mb-3 d-block">{tag}</span>
-                  Total {postCount[tag]} posts
-                </a>
+              <Link
+                href={`/tags/${tag.replace(/ /g, "-").toLowerCase()}`}
+                className="p-4 rounded bg-white d-block is-hoverable"
+              >
+                <i className="mt-1 mb-2 d-inline-block">
+                  <IconTags size={30} />
+                </i>
+                <span className="h4 mt-2 mb-3 d-block">{tag}</span>
+                Total {postCount[tag]} posts
               </Link>
             </div>
           ))}

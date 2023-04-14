@@ -2,7 +2,7 @@ import Search from "@/components/Search";
 import { AppContext } from "@/components/UseContext";
 import Menu from "@/config/menus.json";
 import siteConfig from "@/config/site.config.json";
-import { IconMenu2, IconX } from "@tabler/icons";
+import { IconMenu2, IconX } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
@@ -74,36 +74,33 @@ export default function Header() {
 
   return (
     <>
-      
       <div className="header-height-fix"></div>
       <header className="header-nav">
         <div className="container">
           <div className="row">
             <div className="col-12">
               <nav className="navbar navbar-expand-lg navbar-light p-0">
-                <Link href="/">
-                  <a className="navbar-brand font-weight-bold d-flex mb-0">
-                    <Image
-                      className="img-fluid"
-                      width={110}
-                      height={35}
-                      src={
-                        mounted &&
-                        (theme === "dark" || resolvedTheme === "dark")
-                          ? siteConfig.logo_light
-                          : siteConfig.logo
-                      }
-                      alt={siteConfig.logoText}
-                      layout="fixed"
-                      placeholder="blur"
-                      blurDataURL={
-                        mounted &&
-                        (theme === "dark" || resolvedTheme === "dark")
-                          ? siteConfig.logo_light
-                          : siteConfig.logo
-                      }
-                    />
-                  </a>
+                <Link
+                  href="/"
+                  className="navbar-brand font-weight-bold d-flex mb-0"
+                >
+                  <Image
+                    className="img-fluid"
+                    width={110}
+                    height={35}
+                    src={
+                      mounted && (theme === "dark" || resolvedTheme === "dark")
+                        ? siteConfig.logo_light
+                        : siteConfig.logo
+                    }
+                    alt={siteConfig.logoText}
+                    placeholder="blur"
+                    blurDataURL={
+                      mounted && (theme === "dark" || resolvedTheme === "dark")
+                        ? siteConfig.logo_light
+                        : siteConfig.logo
+                    }
+                  />
                 </Link>
 
                 <button
@@ -215,16 +212,15 @@ export default function Header() {
                           <ul className="dropdown-menu">
                             {n.submenu.map((n, i) => (
                               <li key={i}>
-                                <Link href={n.link}>
-                                  <a
-                                    className={`dropdown-item ${
-                                      router.pathname == `${n.link}`
-                                        ? `active`
-                                        : ""
-                                    }`}
-                                  >
-                                    {n.name}
-                                  </a>
+                                <Link
+                                  href={n.link}
+                                  className={`dropdown-item ${
+                                    router.pathname == `${n.link}`
+                                      ? `active`
+                                      : ""
+                                  }`}
+                                >
+                                  {n.name}
                                 </Link>
                               </li>
                             ))}
@@ -237,8 +233,8 @@ export default function Header() {
                             router.pathname == `${n.link}` ? `active` : ""
                           }`}
                         >
-                          <Link href={n.link}>
-                            <a className="nav-link">{n.name}</a>
+                          <Link href={n.link} className="nav-link">
+                            {n.name}
                           </Link>
                         </li>
                       )
@@ -249,11 +245,12 @@ export default function Header() {
                     <ul className="list-unstyled list-inline mb-0">
                       <li className="list-inline-item">
                         <button
-                          className="search-toggle tw-inline-flex tw--mb-5"
+                          className="search-toggle"
                           data-toggle="search"
                           aria-label="Search Toggle"
                           onClick={() => setSearchOpen(!searchOpen)}
                         >
+                          {/* <span>Search</span> */}
                           <svg
                             width="22"
                             height="22"
@@ -281,7 +278,7 @@ export default function Header() {
                   </div>
 
                   <div
-                    className="color-scheme-toggler d-none d-lg-inline-block tw-mb-2"
+                    className="color-scheme-toggler d-none d-lg-inline-block"
                     onClick={() =>
                       setTheme(
                         theme === "dark" || resolvedTheme === "dark"

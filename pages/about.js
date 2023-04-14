@@ -42,12 +42,11 @@ export default function About({ authors, posts, about: { frontMatter } }) {
                   className={`${item.grid_class} image-grid-${i + 1}`}
                 >
                   <Image
-                    className="w-100 h-auto rounded"
+                    className="img-fluid rounded"
                     src={item.src}
                     alt="about image"
-                    width={item.width}
-                    height={item.height}
-                    layout="responsive"
+                    width={item.width.replace(/[^0-9]/g, "")}
+                    height={item.height.replace(/[^0-9]/g, "")}
                     placeholder="blur"
                     blurDataURL={item.src}
                   />

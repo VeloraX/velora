@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import PageHeaderBlock from "@/components/PageHeader";
 import { getPosts } from "@/libs/getPosts";
-import { IconColorSwatch } from "@tabler/icons";
+import { IconColorSwatch } from "@tabler/icons-react";
 import Link from "next/link";
 
 export default function Categories({ posts }) {
@@ -37,14 +37,13 @@ export default function Categories({ posts }) {
                 href={`/categories/${category
                   .replace(/ /g, "-")
                   .toLowerCase()}`}
+                className="p-4 rounded bg-white d-block is-hoverable"
               >
-                <a className="p-4 rounded bg-white d-block is-hoverable">
-                  <i className="mt-1 mb-2 d-inline-block">
-                    <IconColorSwatch size={30} />
-                  </i>
-                  <span className="h4 mt-2 mb-3 d-block">{category}</span>
-                  Total {postCount[category]} posts
-                </a>
+                <i className="mt-1 mb-2 d-inline-block">
+                  <IconColorSwatch size={30} />
+                </i>
+                <span className="h4 mt-2 mb-3 d-block">{category}</span>
+                Total {postCount[category]} posts
               </Link>
             </div>
           ))}

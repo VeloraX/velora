@@ -4,7 +4,7 @@ import {
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandTwitter,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 import { marked } from "marked";
 import Image from "next/image";
 
@@ -17,12 +17,11 @@ export default function BannerBlock({ banner: { frontMatter } }) {
             <div className="row g-4 g-lg-5 text-center text-lg-start align-items-center justify-content-center justify-content-lg-start">
               <div className="col-md-4 col-sm-5 col-6">
                 <Image
-                  className="rounded"
+                  className="rounded img-fluid"
                   src={frontMatter.image}
                   alt={frontMatter.title}
                   width={`250`}
                   height={`250`}
-                  layout="responsive"
                   placeholder="blur"
                   blurDataURL={frontMatter.image}
                 />
@@ -94,9 +93,15 @@ export default function BannerBlock({ banner: { frontMatter } }) {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <i>
+                      {/* <i>
                         <IconBrandGithub size={18} />
-                      </i>
+                      </i> */}
+
+                      <IconBrandGithub
+                        icon={IconBrandGithub}
+                        className="tw-text-gray-500 tw-mr-2"
+                        size={18}
+                      />
                     </a>
                   </li>
                 </ul>

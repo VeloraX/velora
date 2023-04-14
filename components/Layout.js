@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-sync-scripts */
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import siteConfig from "@/config/site.config.json";
@@ -42,7 +41,6 @@ export default function Layout({
           href={siteConfig.favicon}
           type="image/x-icon"
         />
-      <script src="https://kit.fontawesome.com/030cb1e2a7.js" crossOrigin="anonymous" async />
       </Head>
 
       <Header />

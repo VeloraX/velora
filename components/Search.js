@@ -1,17 +1,16 @@
 import { AppContext } from "@/components/UseContext";
 import { formatDate } from "@/utils/formatDate";
-import { IconX } from "@tabler/icons";
+import { IconX } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
-import { posts } from "../cache/data";
+import { useContext, useState } from "react";
+import { posts } from "../data/posts";
 
 export default function Search() {
   const { toggleSearch } = useContext(AppContext);
   const [searchOpen, setSearchOpen] = toggleSearch;
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [showSearchResults, setshowSearchResults] = useState([]);
 
   // Get Post Tags
   const allTags = posts.map((tag) => tag.frontMatter.tags);
@@ -25,16 +24,7 @@ export default function Search() {
   const flatCategories = allCategories.flat();
   const uniqueCategories = [...new Set(flatCategories)];
 
-  useEffect(() => {
-    const getResults = async () => {
-      const res = await fetch("/api/search");
-      const post = await res.json();
-      setshowSearchResults(post);
-    };
-    getResults();
-  }, []);
-
-  const searchResults = showSearchResults.filter((searchResult) => {
+  const searchResults = posts.filter((searchResult) => {
     if (searchTerm === "") {
       return "";
     } else if (
@@ -121,23 +111,20 @@ export default function Search() {
                   className="search-result-card col-xl-2 col-lg-3 col-sm-4 col-12"
                   onClick={() => resetSearchInput(true)}
                 >
-                  <Link href={`/blog/${r.slug}`}>
-                    <a title={r.frontMatter.title}>
-                      <Image
-                        className="rounded"
-                        src={r.frontMatter.image}
-                        alt={r.frontMatter.title}
-                        width={`190`}
-                        height={`100`}
-                        layout="responsive"
-                        placeholder="blur"
-                        blurDataURL={r.frontMatter.image}
-                      />
-                      <span className="d-inline-block mt-2 mb-1 small">
-                        {formatDate(r.frontMatter.date)}
-                      </span>
-                      <p className="h5 mb-0">{r.frontMatter.title}</p>
-                    </a>
+                  <Link href={`/blog/${r.slug}`} title={r.frontMatter.title}>
+                    <Image
+                      className="rounded img-fluid"
+                      src={r.frontMatter.image}
+                      alt={r.frontMatter.title}
+                      width={`190`}
+                      height={`100`}
+                      placeholder="blur"
+                      blurDataURL={r.frontMatter.image}
+                    />
+                    <span className="d-inline-block mt-2 mb-1 small">
+                      {formatDate(r.frontMatter.date)}
+                    </span>
+                    <p className="h5 mb-0">{r.frontMatter.title}</p>
                   </Link>
                 </div>
               ))}
@@ -160,8 +147,11 @@ export default function Search() {
                 className="list-inline-item me-1 mb-2"
                 onClick={() => resetSearchInput(true)}
               >
-                <Link href={`/tags/${item.replace(/ /g, "-").toLowerCase()}`}>
-                  <a className="small">{item}</a>
+                <Link
+                  href={`/tags/${item.replace(/ /g, "-").toLowerCase()}`}
+                  className="small"
+                >
+                  {item}
                 </Link>
               </li>
             ))}
@@ -179,8 +169,9 @@ export default function Search() {
               >
                 <Link
                   href={`/categories/${item.replace(/ /g, "-").toLowerCase()}`}
+                  className="small"
                 >
-                  <a className="small">{item}</a>
+                  {item}
                 </Link>
               </li>
             ))}

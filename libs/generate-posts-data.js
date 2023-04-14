@@ -25,12 +25,12 @@ function blogData() {
 }
 
 try {
-  fs.readdirSync("cache");
+  fs.readdirSync("data");
 } catch (error) {
-  fs.mkdirSync("cache");
+  fs.mkdirSync("data");
 }
 
-fs.writeFile("cache/data.js", blogData(), function (err) {
+fs.writeFile("data/posts.js", blogData(), function (err) {
   if (err) return console.log(err);
-  console.log("Blog Posts Cache Complete");
+  console.log("Successfully generated Post data.");
 });

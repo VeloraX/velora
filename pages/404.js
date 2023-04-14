@@ -13,8 +13,8 @@ export default function PageNotFound() {
                 <p className="mb-4">
                   Oops. The page you're looking for doesn't exist.
                 </p>
-                <Link href="/">
-                  <a className="btn btn-primary">Back to home</a>
+                <Link href="/" className="btn btn-primary">
+                  Back to home
                 </Link>
               </div>
             </div>

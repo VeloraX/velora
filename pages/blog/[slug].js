@@ -6,21 +6,19 @@ import { getPosts } from "@/libs/getPosts";
 import { formatDate } from "@/utils/formatDate";
 import { readingTime } from "@/utils/readingTime";
 import { truncateString } from "@/utils/truncateString";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
-config.autoAddCss = false;
-import "@fortawesome/fontawesome-free/css/all.css";
 import {
-  faTwitter,
-  faFacebook,
-  faLinkedinIn,
-  faReddit,
-  faPinterest,
-} from "@fortawesome/free-brands-svg-icons";
-
-import { IconCalendarEvent, IconClock } from "@tabler/icons";
-import fs from "fs";
+  // IconTrendingUp,
+  // IconArrowUpRight,
+  // IconBrandFacebookFilled,
+  // IconBrandFacebook,
+  // IconBrandLinkedin,
+  // IconBrandPinterest,
+  // IconBrandReddit,
+  // IconBrandTwitterFilled,
+  IconCalendarEvent,
+  IconClock,
+} from "@tabler/icons-react";
+// import fs from "fs";
 import matter from "gray-matter";
 import { marked } from "marked";
 import Image from "next/image";
@@ -46,27 +44,30 @@ export default function PostPage({
                   className="rounded w-100"
                   src={image}
                   alt={title}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  cover
+                  style={{ objectFit: "cover" }}
+
                   quality={100}
                   placeholder="blur"
                   blurDataURL={image}
                 />
                 <div className="post-hero-overlay">
-                  <div className="post-hero-content tw-pl-60">
-                    <h3 className="h1 mb-4 post-title text-white tw-absolute tw-bottom-36">
+                  <div className="post-hero-content tw-pl-40 tw-mb-64">
+                    <h3 className="h1 mb-4 post-title text-white tw-bottom-36 tw-absolute tw-pb-72">
                       {title}
                     </h3>
                     <ul className="post-meta-tag list-unstyled list-inline mt-5">
                       <li className="list-inline-item">Tags: </li>
                       {tags.map((t, i) => (
                         <li key={i} className="list-inline-item">
-                          <Link
-                            href={`/tags/${t.replace(/ /g, "-").toLowerCase()}`}
-                          >
-                            <a className="bg-white text-dark">{t}</a>
+                          <Link href={`/tags/${t.replace(/ /g, "-").toLowerCase()}`}>
+                            <div>
+                              <span className="tw-text-gray-500">{t}</span>
+                            </div>
                           </Link>
                         </li>
+
                       ))}
                     </ul>
                     <ul className="card-meta list-inline mb-2">
@@ -100,39 +101,41 @@ export default function PostPage({
 
             <div className="col-lg-3 tw-relative tw-left-28">
               <h4>
-                <a className="tw-text-slate-500 tw-ml-10">{author}</a>
+                <Link href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}>
+                  <span className="tw-text-slate-500 tw-ml-10">{author}</span>
+                </Link>
+
               </h4>
 
               <div className="tw-sticky tw-top-4">
                 <div className="tw-d-block tw-d-md-flex tw-w-full tw-ml-11 tw-mt-2.5">
-                  <Link
-                    href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}
-                  >
-                    <a>
-                      {authors.map((authorPage, i) =>
-                        author.replace(/ /g, "-").toLowerCase() ===
-                        authorPage.authorSlug ? (
-                          <span key={i}>
-                            <Image
-                              src={authorPage.authorFrontMatter.image}
-                              alt={author}
-                              width="200"
-                              height="200"
-                              layout="fixed"
-                              className="tw-rounded tw-mr-4 tw-shadow-md"
-                              placeholder="tw-blur"
-                              blurDataURL={authorPage.authorFrontMatter.image}
-                            />
-                          </span>
-                        ) : (
-                          ""
-                        )
-                      )}
-                    </a>
+                  <Link href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}>
+
+                    {authors.map((authorPage, i) =>
+                      author.replace(/ /g, "-").toLowerCase() === authorPage.authorSlug ? (
+                        <span key={i}>
+                          <Image
+                            src={authorPage.authorFrontMatter.image}
+                            alt={author}
+                            width="200"
+                            height="200"
+                            layout="fixed"
+                            className="tw-rounded tw-mr-4 tw-shadow-md"
+                            placeholder="tw-blur"
+                            blurDataURL={authorPage.authorFrontMatter.image}
+                          />
+                        </span>
+                      ) : (
+                        ""
+                      )
+                    )}
+
                   </Link>
+
+
                 </div>
                 <div className="tw-p-5">
-                  <p className="tw-text-gray-500">
+                  <div className="tw-text-gray-500">
                     <div className="ms-0 ms-md-4 ps-0 ps-md-3 mt-4 mt-md-0">
                       <div className="h4 tw-mb-3 tw--ml-3.5 tw-relative tw-bottom-6">
                         <span className="tw-text-sm tw-text-gray-500">
@@ -147,7 +150,7 @@ export default function PostPage({
                       <div className="tw--ml-6">
                         {authors.map((authorPage, i) =>
                           author.replace(/ /g, "-").toLowerCase() ===
-                          authorPage.authorSlug ? (
+                            authorPage.authorSlug ? (
                             <div
                               key={i}
                               dangerouslySetInnerHTML={{
@@ -160,28 +163,10 @@ export default function PostPage({
                             ""
                           )
                         )}
-                        <Link
-                          href={`/author/${author
-                            .replace(/ /g, "-")
-                            .toLowerCase()}`}
-                        >
-                          <a
-                            className="tw-text-slate-500 tw-hover:text-blue-700 tw-font-semi-bold"
-                            style={{
-                              background: `linear-gradient(to right, #434C5E, #4C566A, #E5E9F0, #ECEFF4)`,
-                              backgroundSize: "100% 1px",
-                              backgroundRepeat: "no-repeat",
-                              backgroundPosition: "bottom",
-                              paddingBottom: "2px",
-                            }}
-                          >
-                            About <i className="fa-solid fa-arrow-trend-up" />{" "}
-                            {`${author.replace(/ /g, " ")}`}
-                          </a>
-                        </Link>
+
                       </div>
                     </div>
-                  </p>
+                  </div>
                   <div></div>
                 </div>
               </div>
@@ -194,53 +179,33 @@ export default function PostPage({
   );
 }
 
-export async function getStaticPaths() {
-  const blogDirFiles = fs.readdirSync(path.join("content/blog"));
-  const blogs = blogDirFiles.filter((f) => f.includes(".md"));
+export async function getStaticProps({ params }) {
+  const contentDirectory = path.join(process.cwd(), "content/blog");
+  const posts = getPosts(contentDirectory);
+  const post = posts.find((p) => p.slug === params.slug);
+  const authors = getAuthors();
+  const postCount = posts.length;
 
-  const paths = blogs.map((filename) => ({
-    params: {
-      slug: filename.replace(".md", ""),
+  return {
+    props: {
+      slug: post.slug,
+      content: post.content,
+      frontMatter: post.frontMatter,
+      authors,
+      postCount,
     },
+  };
+}
+
+export async function getStaticPaths() {
+  const contentDirectory = path.join(process.cwd(), "content/blog");
+  const posts = getPosts(contentDirectory);
+  const paths = posts.map((post) => ({
+    params: { slug: post.slug },
   }));
 
   return {
     paths,
     fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const { slug } = params;
-
-  const fileContents = fs.readFileSync(
-    path.join("content/blog", slug + ".md"),
-    "utf8"
-  );
-
-  const { data: frontMatter, content } = matter(fileContents);
-
-  const posts = await getPosts();
-
-  const allAuthor = posts.map((post) => post.frontMatter.author);
-  const postCount = {};
-  allAuthor.forEach((x) => {
-    postCount[x] = (postCount[x] || 0) + 1;
-  });
-
-  return {
-    props: {
-      slug,
-      frontMatter,
-      content,
-      authors: getAuthors(),
-      posts: getPosts(),
-      postCount,
-      faTwitter,
-      faFacebook,
-      faLinkedinIn,
-      faReddit,
-      faPinterest,
-    },
   };
 }
