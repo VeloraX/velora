@@ -2,10 +2,10 @@
 .header-height-fix {
   height: 116px;
   @include desktop {
-    height: 115px;
+    height: 96px;
   }
   @include tablet {
-    height: 105px;
+    height: 95px;
   }
 }
 .header-nav {
@@ -15,7 +15,7 @@
   left: 0;
   z-index: 1000;
   background-color: $body-background;
-  padding: 7px 0 20px;
+  // padding: 7px 0 17px;
   transition: transform 0.4s cubic-bezier(0.2, 1, 0.2, 1),
     padding 0.4s cubic-bezier(0.2, 1, 0.2, 1);
   background-color: rgba($body-background, 0.9);
@@ -30,7 +30,7 @@
   }
   &.header-sticky-top {
     box-shadow: 0 0 50px -30px rgba($color-primary, 0.5);
-    padding: 20px 0;
+    padding: 7px 0;
   }
 
   .navbar-brand {
@@ -81,8 +81,8 @@
 
     .nav-link {
       color: $dark !important;
-      padding: 10px 20px !important;
-      border-radius: 4px;
+      padding: 8px 17px !important;
+      border-radius: 2px;
     }
     &:hover .nav-link {
       background-color: rgba($color-primary, 0.1);

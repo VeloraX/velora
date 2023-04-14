@@ -86,8 +86,8 @@ export default function Header() {
                 >
                   <Image
                     className="img-fluid"
-                    width={110}
-                    height={35}
+                    width={175}
+                    height={70}
                     src={
                       mounted && (theme === "dark" || resolvedTheme === "dark")
                         ? siteConfig.logo_light
@@ -193,10 +193,10 @@ export default function Header() {
                           key={i}
                           className={`nav-item dropdown
                           ${n.submenu
-                            .map((n) =>
-                              router.pathname == `${n.link}` ? `active` : ""
-                            )
-                            .join("")}
+                              .map((n) =>
+                                router.pathname == `${n.link}` ? `active` : ""
+                              )
+                              .join("")}
                         `}
                         >
                           <a
@@ -214,11 +214,10 @@ export default function Header() {
                               <li key={i}>
                                 <Link
                                   href={n.link}
-                                  className={`dropdown-item ${
-                                    router.pathname == `${n.link}`
-                                      ? `active`
-                                      : ""
-                                  }`}
+                                  className={`dropdown-item ${router.pathname == `${n.link}`
+                                    ? `active`
+                                    : ""
+                                    }`}
                                 >
                                   {n.name}
                                 </Link>
@@ -229,9 +228,8 @@ export default function Header() {
                       ) : (
                         <li
                           key={i}
-                          className={`nav-item ${
-                            router.pathname == `${n.link}` ? `active` : ""
-                          }`}
+                          className={`nav-item ${router.pathname == `${n.link}` ? `active` : ""
+                            }`}
                         >
                           <Link href={n.link} className="nav-link">
                             {n.name}
