@@ -10,11 +10,11 @@ import {
   // IconTrendingUp,
   // IconArrowUpRight,
   // IconBrandFacebookFilled,
-  // IconBrandFacebook,
-  // IconBrandLinkedin,
-  // IconBrandPinterest,
-  // IconBrandReddit,
-  // IconBrandTwitterFilled,
+  IconBrandFacebook,
+  IconBrandLinkedin,
+  IconBrandPinterest,
+  IconBrandReddit,
+  IconBrandTwitter,
   IconCalendarEvent,
   IconClock,
 } from "@tabler/icons-react";
@@ -90,7 +90,7 @@ export default function PostPage({
               </div>
             </div>
 
-            <div className="col-lg-8 tw-ml-24">
+            <div className="col-lg-8">
               <div className="post-content">
                 <div
                   className="content text-justify"
@@ -99,15 +99,77 @@ export default function PostPage({
               </div>
             </div>
 
-            <div className="col-lg-3 tw-relative tw-left-28">
-              <h4>
-                <Link href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}>
-                  <span className="tw-text-slate-500 tw-ml-10">{author}</span>
-                </Link>
-
-              </h4>
-
+            <div className="col-lg-3 tw-relative">
               <div className="tw-sticky tw-top-4">
+                <div className="post-share-block tw-mt-5 tw-mt-lg-0">
+                  <div className="position-sticky" style={{ top: 150 + "px" }}>
+                    <span className="d-inline-block tw-mb-3 small">SHARE</span>
+                    <ul className="social-share icon-box">
+                      <li className="d-inline-block tw-me-2 tw-mb-2">
+                        <a
+                          href={`https://twitter.com/intent/tweet?text=${title}&url=${pageUrl}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i>
+                            <IconBrandTwitter size={18} />
+                          </i>
+                        </a>
+                      </li>
+                      <li className="d-inline-block tw-me-2 tw-mb-2">
+                        <a
+                          href={`https://www.facebook.com/sharer.php?u=${pageUrl}&quote=${title}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i>
+                            <IconBrandFacebook size={18} />
+                          </i>
+                        </a>
+                      </li>
+                      <li className="d-inline-block tw-me-2 tw-mb-2">
+                        <a
+                          href={`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i>
+                            <IconBrandLinkedin size={18} />
+                          </i>
+                        </a>
+                      </li>
+                      <li className="d-inline-block tw-me-2 tw-mb-2">
+                        <a
+                          href={`https://www.reddit.com/submit?url=${pageUrl}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i>
+                            <IconBrandReddit size={18} />
+                          </i>
+                        </a>
+                      </li>
+                      <li className="d-inline-block tw-me-2 tw-mb-2">
+                        <a
+                          href={`https://www.pinterest.com/pin/create/button/?&text=${title}&url=${pageUrl}&description=${title}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i>
+                            <IconBrandPinterest size={18} />
+                          </i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h4>
+                  <Link href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}>
+                    <span className="tw-text-slate-500 tw-ml-10">{author}</span>
+                  </Link>
+
+                </h4>
                 <div className="tw-d-block tw-d-md-flex tw-w-full tw-ml-11 tw-mt-2.5">
                   <Link href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}>
 
@@ -119,8 +181,7 @@ export default function PostPage({
                             alt={author}
                             width="200"
                             height="200"
-                            layout="fixed"
-                            className="tw-rounded tw-mr-4 tw-shadow-md"
+                            className="tw-rounded tw-mr-4 tw-shadow-md img-fluid"
                             placeholder="tw-blur"
                             blurDataURL={authorPage.authorFrontMatter.image}
                           />
