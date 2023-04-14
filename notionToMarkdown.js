@@ -1,7 +1,8 @@
+const { Client } = require('@notionhq/client');
+const notion = new Client({ auth: process.env.NEXT_NOTION_API_KEY });
 const fs = require('fs');
 const path = require('path');
 const { getAllEntries } = require('./libs/api');
-const notionApiKey = process.env.NOTION_API_KEY
 
 const envConfig = fs.readFileSync('.env.local', 'utf8');
 const env = envConfig
@@ -16,7 +17,11 @@ const env = envConfig
 process.env = { ...process.env, ...env };
 
 async function main() {
+    const notionApiKey = process.env.NEXT_NOTION_API_KEY;
+    const contentPath = path.join(__dirname, 'content', 'blog');
     const entries = await getAllEntries(notionApiKey);
+
+    console.log('Entries:', entries); // Add this line to log the entries
 
     for (const entry of entries) {
         const {
@@ -55,8 +60,9 @@ last_edited_time: "${last_edited_time}"
 ${summary.rich_text[0].text.content}
 `;
 
+        console.log(`Writing file: ${filePath}`); // Add this line to log the file being written
         fs.writeFileSync(filePath, markdownContent);
     }
 }
 
-main();
+main().catch(console.error);

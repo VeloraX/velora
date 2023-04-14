@@ -11,8 +11,8 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   env: {
-    NOTION_API_KEY: process.env.NOTION_API_KEY,
-    NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID,
+    NEXT_NOTION_API_KEY: process.env.NEXT_NOTION_API_KEY,
+    NEXT_NOTION_DATABASE_ID: process.env.NEXT_NOTION_DATABASE_ID,
   },
 };
 

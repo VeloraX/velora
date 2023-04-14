@@ -1,32 +1,39 @@
 // const { Client } = require('@notionhq/client');
 
 // async function getAllEntries(notionApiKey) {
-//     const notion = new Client({
-//         auth: notionApiKey,
+//     const notion = new Client({ auth: notionApiKey });
+
+//     const response = await notion.databases.query({
+//         database_id: process.env.NEXT_NOTION_DATABASE_ID,
+//         filter: {
+//             property: 'status',
+//             select: {
+//                 equals: 'published',
+//             },
+//         },
 //     });
 
 //     return response.results;
 // }
 
 // module.exports = { getAllEntries };
-
-
 const { Client } = require('@notionhq/client');
 
-async function getAllEntries(apiKey) {
-    const notion = new Client({ auth: apiKey });
+const notion = new Client({
+    auth: process.env.NOTION_API_KEY,
+});
 
+const databaseId = process.env.NOTION_DATABASE_ID;
+
+async function getAllEntries() {
     const response = await notion.databases.query({
-        database_id: process.env.NOTION_DATABASE_ID,
-        filter: {
-            property: 'status',
-            select: {
-                equals: 'published',
-            },
-        },
+        database_id: databaseId,
     });
-
+    console.log(response);
     return response.results;
 }
 
-module.exports = { getAllEntries };
+module.exports = {
+    getAllEntries,
+};
+
