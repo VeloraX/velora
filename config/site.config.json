@@ -16,8 +16,8 @@
     "ogImage": "/images/ogimage.jpg"
   },
   "baseURL": "https://velora.site",
-  "logo": "/images/logo-full.png",
-  "logo_light": "/images/logo-full.png",
+  "logo": "/images/logo-w715.png",
+  "logo_light": "/images/logo-w715.png",
   "logoText": "Velora",
   "favicon": "/images/whale_velora.ico",
   "postPerPage": 6,
