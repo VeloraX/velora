@@ -7,6 +7,15 @@ export default function Updates({ issues }) {
     return (
         <Layout metaTitle={"Latest Updates"}>
             <div className="relative h-screen">
+                {/* <Image
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                    src="https://ik.imagekit.io/velora/Random_images/13170.jpg?updatedAt=1681557656596"
+                    alt="Background"
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="center"
+                    quality={90}
+                /> */}
                 <div className="container mx-auto px-4">
                     <h1 className="text-4xl font-bold text-white py-10">Updates</h1>
                     <div className="grid grid-cols-3 gap-4">
