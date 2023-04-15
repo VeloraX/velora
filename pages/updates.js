@@ -41,13 +41,16 @@ const Updates = ({ issues }) => {
                                 })}
                         </ul>
                     </div>
-                    <Image
-                        className="tw-fixed tw-top-0 tw-right-0 tw-opacity-50"
-                        src="https://ik.imagekit.io/velora/Assets/13170.jpg?updatedAt=1681562247555"
-                        alt="Globe"
-                        width={492}
-                        height={492}
-                    />
+                    <div className="tw-fixed tw-top-0 tw-right-0">
+
+                        <Image
+                            className="tw-w-48 tw-h-48 tw-object-cover tw-opacity-50"
+                            src="https://ik.imagekit.io/velora/Assets/13170.jpg?updatedAt=1681562247555"
+                            alt="Globe"
+                            width={275}
+                            height={130}
+                        />
+                    </div>
                 </div>
             </section>
         </Layout>
