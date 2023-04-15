@@ -7,9 +7,7 @@ import { formatDate } from "@/utils/formatDate";
 import { readingTime } from "@/utils/readingTime";
 import { truncateString } from "@/utils/truncateString";
 import {
-  // IconTrendingUp,
-  // IconArrowUpRight,
-  // IconBrandFacebookFilled,
+  IconBook,
   IconBrandFacebook,
   IconBrandLinkedin,
   IconBrandPinterest,
@@ -18,8 +16,6 @@ import {
   IconCalendarEvent,
   IconClock,
 } from "@tabler/icons-react";
-// import fs from "fs";
-import matter from "gray-matter";
 import { marked } from "marked";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,179 +29,123 @@ export default function PostPage({
   postCount,
 }) {
   let pageUrl = `${siteConfig.baseURL.replace(/\/$|$/, "/")}blog/${slug}`;
+
   return (
     <Layout metaTitle={title} metaDescription={description} ogImage={image}>
       <section className="section-sm pb-0">
         <div className="container">
+          <Image
+            className="rounded"
+            src={image}
+            alt={title}
+            fill
+            style={{ objectFit: "contain" }}
+            quality={100}
+            placeholder={title}
+            blurDataURL={image}
+          />
           <div className="row justify-content">
             <div className="col-lg-12">
               <div className="mb-5 post-details-image">
-                <Image
-                  className="rounded w-100"
-                  src={image}
-                  alt={title}
-                  fill
-                  cover
-                  style={{ objectFit: "cover" }}
 
-                  quality={100}
-                  placeholder="blur"
-                  blurDataURL={image}
-                />
                 <div className="post-hero-overlay">
                   <div className="post-hero-content tw-pl-40 tw-mb-64">
-                    <h3 className="h1 mb-4 post-title text-white tw-bottom-36 tw-absolute tw-pb-72">
-                      {title}
-                    </h3>
-                    <ul className="post-meta-tag list-unstyled list-inline mt-5">
-                      <li className="list-inline-item">Tags: </li>
+                    <h1 className="article-header tw-font-semi-bold tw-text-white tw-text-6xl tw-absolute">{title}
+                    </h1>
+                  </div>
+
+
+                  <div className="meta-box">
+                    <ul className="list-unstyled tw-list-item tw--mb-1">
+                      <li className="list-inline-item tw-text-white">Tags: </li>
                       {tags.map((t, i) => (
                         <li key={i} className="list-inline-item">
                           <Link href={`/tags/${t.replace(/ /g, "-").toLowerCase()}`}>
-                            <div>
-                              <span className="tw-text-gray-500">{t}</span>
-                            </div>
+                            <span className="tw-text-gray-500 cursor-pointer">
+                              {t}
+                              {i < tags.length - 1 ? ',' : ''}
+                            </span>
                           </Link>
                         </li>
-
                       ))}
-                    </ul>
-                    <ul className="card-meta list-inline mb-2">
-                      <li className="list-inline-item mt-2">
-                        <i className="me-2 tw-inline-block">
+
+
+                      <li className="list-inline-item tw-text-white">
+                        <i className="me-1 tw-inline-block tw--mb-1">
                           <IconClock size={18} />
                         </i>
                         <span>{readingTime(content)} min read</span>
                       </li>
-                      <li className="list-inline-item mt-2">—</li>
-                      <li className="list-inline-item mt-2">
-                        <i className="me-2 tw-inline-block">
+
+                      <li className="list-inline-item tw-text-white">
+                        <i className="me-1 tw-inline-block tw--mb-1">
                           <IconCalendarEvent size={18} />
                         </i>
                         <span>{formatDate(date)}</span>
                       </li>
                     </ul>
                   </div>
+
                 </div>
               </div>
             </div>
 
-            <div className="col-lg-8">
+            <div className="col-lg-9">
               <div className="post-content">
                 <div
-                  className="content text-justify"
+                  className="content tw-text-justify"
                   dangerouslySetInnerHTML={{ __html: marked.parse(content) }}
                 ></div>
               </div>
             </div>
 
-            <div className="col-lg-3 tw-relative">
+            <div className="col-lg-3 tw-relative tw-text-sm">
               <div className="tw-sticky tw-top-4">
                 <div className="post-share-block tw-mt-5 tw-mt-lg-0">
-                  <div className="position-sticky" style={{ top: 150 + "px" }}>
-                    <span className="d-inline-block tw-mb-3 small">SHARE</span>
-                    <ul className="social-share icon-box">
-                      <li className="d-inline-block tw-me-2 tw-mb-2">
-                        <a
-                          href={`https://twitter.com/intent/tweet?text=${title}&url=${pageUrl}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <i>
-                            <IconBrandTwitter size={18} />
-                          </i>
-                        </a>
-                      </li>
-                      <li className="d-inline-block tw-me-2 tw-mb-2">
-                        <a
-                          href={`https://www.facebook.com/sharer.php?u=${pageUrl}&quote=${title}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <i>
-                            <IconBrandFacebook size={18} />
-                          </i>
-                        </a>
-                      </li>
-                      <li className="d-inline-block tw-me-2 tw-mb-2">
-                        <a
-                          href={`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <i>
-                            <IconBrandLinkedin size={18} />
-                          </i>
-                        </a>
-                      </li>
-                      <li className="d-inline-block tw-me-2 tw-mb-2">
-                        <a
-                          href={`https://www.reddit.com/submit?url=${pageUrl}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <i>
-                            <IconBrandReddit size={18} />
-                          </i>
-                        </a>
-                      </li>
-                      <li className="d-inline-block tw-me-2 tw-mb-2">
-                        <a
-                          href={`https://www.pinterest.com/pin/create/button/?&text=${title}&url=${pageUrl}&description=${title}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <i>
-                            <IconBrandPinterest size={18} />
-                          </i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
+                  <div
+                    className="position-sticky"
+                    style={{ top: 150 + "px" }}
+                  ></div>
                 </div>
 
-                <h4>
-                  <Link href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}>
-                    <span className="tw-text-slate-500 tw-ml-10">{author}</span>
-                  </Link>
-
-                </h4>
                 <div className="tw-d-block tw-d-md-flex tw-w-full tw-ml-11 tw-mt-2.5">
-                  <Link href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}>
-
+                  <Link
+                    href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}
+                  >
                     {authors.map((authorPage, i) =>
-                      author.replace(/ /g, "-").toLowerCase() === authorPage.authorSlug ? (
+                      author.replace(/ /g, "-").toLowerCase() ===
+                        authorPage.authorSlug ? (
                         <span key={i}>
-                          <Image
-                            src={authorPage.authorFrontMatter.image}
-                            alt={author}
-                            width="200"
-                            height="200"
-                            className="tw-rounded tw-mr-4 tw-shadow-md img-fluid"
-                            placeholder="tw-blur"
-                            blurDataURL={authorPage.authorFrontMatter.image}
-                          />
+                          <div className="imageContainer">
+                            <Image
+                              src={authorPage.authorFrontMatter.image}
+                              alt={author}
+                              width="200"
+                              height="200"
+                              className="tw-shadow-md img-fluid"
+                              placeholder="tw-blur"
+                              blurDataURL={authorPage.authorFrontMatter.image}
+                            />
+                          </div>
                         </span>
                       ) : (
                         ""
                       )
                     )}
-
                   </Link>
-
-
                 </div>
                 <div className="tw-p-5">
                   <div className="tw-text-gray-500">
                     <div className="ms-0 ms-md-4 ps-0 ps-md-3 mt-4 mt-md-0">
-                      <div className="h4 tw-mb-3 tw--ml-3.5 tw-relative tw-bottom-6">
-                        <span className="tw-text-sm tw-text-gray-500">
-                          {" "}
-                          This Dev Contributed{" "}
-                          <span className="tw-font-bold">
-                            {postCount[author]} Articles
-                          </span>
-                        </span>
+                      <div className="h4 tw-mb-3 tw--ml-3.5 tw-relative tw-bottom-2">
+                        <p className="mb-2">
+                          <span className="tw-text-md">
+                            {postCount[author] < 9
+                              ? `0${postCount[author]}`
+                              : postCount[author]}
+                          </span>{" "}
+                          <span className="tw-text-md">Published Posts</span>
+                        </p>
                       </div>
 
                       <div className="tw--ml-6">
@@ -216,7 +156,7 @@ export default function PostPage({
                               key={i}
                               dangerouslySetInnerHTML={{
                                 __html: marked.parse(
-                                  truncateString(authorPage.authorContent, 150)
+                                  truncateString(authorPage.authorContent, 100)
                                 ),
                               }}
                             ></div>
@@ -225,10 +165,109 @@ export default function PostPage({
                           )
                         )}
 
+                        <br />
+                        <Link
+                          href={`/author/${author
+                            .replace(/ /g, "-")
+                            .toLowerCase()}`}
+                        >
+                          <span
+                            className="tw-text-slate-500"
+                            style={{
+                              background: `linear-gradient(to right, #434C5E, #4C566A, #E5E9F0, #ECEFF4)`,
+                              backgroundSize: "100% 1px",
+                              backgroundRepeat: "no-repeat",
+                              backgroundPosition: "bottom",
+                              paddingBottom: "2px",
+                            }}
+                          >
+                            <i>More by {author}...</i>
+                          </span>
+                        </Link>
                       </div>
                     </div>
                   </div>
                   <div></div>
+                  <br />
+
+                  <span className="d-inline-block tw-mb-3 tw-med tw-ml-3.5">
+                    SHARING IS CARING
+                  </span>
+                  <ul className="social-share icon-box tw-ml-3.5">
+                    <li className="d-inline-block tw-me-2 tw-mb-2 tw-bg-blue-400">
+                      <a
+                        href={`https://twitter.com/intent/tweet?text=${title}&url=${pageUrl}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i>
+                          <IconBrandTwitter
+                            size={18}
+                            className="tw-w-6 tw-h-6 tw-font-semibold tw-text-white tw-inline-flex tw-items-center"
+                          />
+                        </i>
+                      </a>
+                    </li>
+
+                    <li className="d-inline-block tw-me-2 tw-mb-2 tw-bg-red-600">
+                      <a
+                        href={`https://www.pinterest.com/pin/create/button/?&text=${title}&url=${pageUrl}&description=${title}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i>
+                          <IconBrandPinterest
+                            size={18}
+                            className="tw-w-6 tw-h-6 tw-font-semibold tw-text-white tw-inline-flex tw-items-center"
+                          />
+                        </i>
+                      </a>
+                    </li>
+                    <li className="d-inline-block tw-me-2 tw-mb-2 tw-bg-blue-500">
+                      <a
+                        href={`https://www.facebook.com/sharer.php?u=${pageUrl}&quote=${title}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i>
+                          <IconBrandFacebook
+                            size={18}
+                            className="tw-w-6 tw-h-6 tw-font-semibold tw-text-white tw-inline-flex tw-items-center"
+                          />
+                        </i>
+                      </a>
+                    </li>
+
+                    <li className="d-inline-block tw-me-2 tw-mb-2 tw-bg-red-500">
+                      <a
+                        href={`https://www.reddit.com/submit?url=${pageUrl}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i>
+                          <IconBrandReddit
+                            size={18}
+                            className="tw-w-6 tw-h-6 tw-font-semibold tw-text-white tw-inline-flex tw-items-center"
+                          />
+                        </i>
+                      </a>
+                    </li>
+
+                    <li className="d-inline-block tw-me-2 tw-mb-2 tw-bg-blue-600">
+                      <a
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i>
+                          <IconBrandLinkedin
+                            size={18}
+                            className="tw-w-6 tw-h-6 tw-font-semibold tw-text-white tw-inline-flex tw-items-center"
+                          />
+                        </i>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -245,7 +284,13 @@ export async function getStaticProps({ params }) {
   const posts = getPosts(contentDirectory);
   const post = posts.find((p) => p.slug === params.slug);
   const authors = getAuthors();
-  const postCount = posts.length;
+
+  // Add the postCount calculation here
+  const postCount = {};
+  posts.forEach((post) => {
+    const author = post.frontMatter.author;
+    postCount[author] = (postCount[author] || 0) + 1;
+  });
 
   return {
     props: {
