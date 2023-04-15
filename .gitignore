@@ -19,6 +19,7 @@
 .DS_Store
 *.pem
 .husky
+/.templates/*
 
 # debug
 npm-debug.log*
