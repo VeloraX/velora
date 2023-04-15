@@ -1,18 +1,18 @@
 import { getIssues } from "../libs/labelUtils";
-import Layout from "@/components/Layout";
+import { Layout } from "@/components/Layout";
 import Image from "next/image";
 
 export default function Updates({ issues }) {
     return (
         <Layout metaTitle={"Latest Updates"}>
-            {/* <section
-                className="h-screen bg-cover bg-center"
-                style={{
-                    backgroundImage:
-                        "url(https://ik.imagekit.io/velora/Random_images/13170.jpg?updatedAt=1681557656596)",
-                }}
-            > */}
-            <section>
+            <div className="relative h-screen">
+                <Image
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                    src="https://ik.imagekit.io/velora/Random_images/13170.jpg?updatedAt=1681557656596"
+                    alt="Background"
+                    layout="fill"
+                    objectFit="cover"
+                />
                 <div className="container mx-auto px-4">
                     <h1 className="text-4xl font-bold text-white py-10">Updates</h1>
                     <div className="grid grid-cols-2 gap-4">
@@ -40,18 +40,17 @@ export default function Updates({ issues }) {
                                 </a>
                             ))}
                     </div>
-                    <div className="tw-fixed tw-top-0 tw-right-0">
-
-                        <Image
-                            className="tw-w-48 tw-h-48 tw-object-cover tw-opacity-50"
-                            src="https://ik.imagekit.io/velora/Assets/13170.jpg?updatedAt=1681562247555"
-                            alt="Globe"
-                            width={275}
-                            height={130}
-                        />
-                    </div>
                 </div>
-            </section>
+                <div className="tw-fixed tw-top-0 tw-right-0 tw-w-48 tw-h-48 tw-opacity-50">
+                    <Image
+                        className="tw-w-48 tw-h-48 tw-object-cover tw-opacity-50"
+                        src="https://ik.imagekit.io/velora/Assets/13170.jpg?updatedAt=1681562247555"
+                        alt="Globe"
+                        width={275}
+                        height={130}
+                    />
+                </div>
+            </div>
         </Layout>
     );
 }
