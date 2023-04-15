@@ -28,3 +28,14 @@ export async function getIssues(repo, owner) {
     const { data } = await axios.get(url, config);
     return data;
 }
+
+export function getLabelClass(state) {
+    switch (state) {
+        case "open":
+            return "bg-green-500";
+        case "closed":
+            return "bg-red-500";
+        default:
+            return "";
+    }
+}
