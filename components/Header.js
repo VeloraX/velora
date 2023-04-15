@@ -2,7 +2,10 @@ import Search from "@/components/Search";
 import { AppContext } from "@/components/UseContext";
 import Menu from "@/config/menus.json";
 import siteConfig from "@/config/site.config.json";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import {
+  IconMenu2,
+  IconX,
+} from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
@@ -79,15 +82,15 @@ export default function Header() {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <nav className="navbar navbar-expand-lg navbar-light p-0">
+              <nav className="navbar navbar-expand-lg navbar-light p-2">
                 <Link
                   href="/"
                   className="navbar-brand font-weight-bold d-flex mb-0"
                 >
                   <Image
                     className="img-fluid"
-                    width={175}
-                    height={70}
+                    width={100}
+                    height={2}
                     src={
                       mounted && (theme === "dark" || resolvedTheme === "dark")
                         ? siteConfig.logo_light
@@ -209,7 +212,7 @@ export default function Header() {
                           >
                             {n.name}
                           </a>
-                          <ul className="dropdown-menu">
+                          <ul className="dropdown-menu ">
                             {n.submenu.map((n, i) => (
                               <li key={i}>
                                 <Link
