@@ -1,10 +1,9 @@
 import React from "react";
-import { getIssues, getLabelClass } from "@/libs/labelUtils";
 import Layout from "@/components/Layout";
 import Image from "next/image";
 import { format } from 'date-fns';
 
-const Updates = ({ issues }) => {
+const Updates = ({ commits }) => {
     return (
         <Layout metaTitle={"Latest Updates"}>
             <section>
@@ -12,27 +11,23 @@ const Updates = ({ issues }) => {
                     <div className="container mx-auto px-4">
                         <h1 className="tw-text-4xl tw-font-bold tw-py-10">Updates</h1>
                         <ul className="tw-space-y-4">
-                            {issues &&
-                                issues.map((issue) => {
-                                    const date = format(new Date(issue.created_at), 'MMMM dd, yyyy');
-                                    const issueLink = issue.html_url.match(/.+\/issues\/\d+/)[0];
+                            {commits &&
+                                commits.map((commit) => {
+                                    const date = format(new Date(commit.commit.author.date), 'MMMM dd, yyyy');
+                                    const message = commit.commit.message;
+                                    const commitLink = commit.html_url;
+
                                     return (
-                                        <li key={issue.id} className="tw-p-4 tw-shadow-lg tw-flex tw-flex-items-start">
-                                            <div
-                                                className={`change-badge tw-text-sm tw-font-bold tw-uppercase tw-px-4 tw-py-1  ${getLabelClass(issue.state)}`}
-                                            >
-                                                {issue.state}
-                                            </div>
-                                            <div className="change-description tw-ml-2">
-                                                <h2 className="tw-text-xl tw-font-bold">{issue.title}</h2>
-                                                <p className="tw-mt-2">{issue.body}</p>
+                                        <li key={commit.sha} className="tw-p-2 tw-shadow-sm tw-flex tw-flex-items-start">
+                                            <div className="change-description">
+                                                <h2 className="tw-text-lg">{message}</h2>
                                                 <a
-                                                    href={`${issueLink}/L19-L22`}
+                                                    href={commitLink}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="tw-text-blue-500 tw-hover:text-blue-700"
                                                 >
-                                                    {`(${issue.number}: L19-L22)`}
+                                                    View Commit
                                                 </a>
                                                 <span className="tw-ml-2 tw-text-gray-600">{date}</span>
                                             </div>
@@ -42,13 +37,12 @@ const Updates = ({ issues }) => {
                         </ul>
                     </div>
                     <div className="tw-fixed tw-top-0 tw-right-0">
-
                         <Image
                             className="tw-w-48 tw-h-48 tw-object-cover tw-opacity-50"
                             src="https://ik.imagekit.io/velora/Assets/13170.jpg?updatedAt=1681562247555"
                             alt="Globe"
-                            width={275}
-                            height={130}
+                            width={475}
+                            height={260}
                         />
                     </div>
                 </div>
@@ -58,22 +52,23 @@ const Updates = ({ issues }) => {
 };
 
 
+export default Updates;
+
 export async function getServerSideProps() {
-    const oneMonthAgo = new Date();
-    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
-
-    const response = await fetch(
-        "https://api.github.com/repos/VeloraX/velora/issues?state=all&since=" +
-        oneMonthAgo.toISOString()
+    const res = await fetch(
+        `https://api.github.com/repos/VeloraX/velora/commits`
     );
+    const data = await res.json();
 
-    const issues = await response.json();
+    if (!data) {
+        return {
+            notFound: true,
+        };
+    }
 
     return {
         props: {
-            issues: issues.filter((issue) => !issue.pull_request),
+            commits: data,
         },
     };
 }
-
-export default Updates;
