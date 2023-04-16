@@ -40,7 +40,7 @@ const Updates = ({ commits }) => {
 
             const badgeColor = badgeColors[Math.floor(Math.random() * badgeColors.length)];
 
-            const messageWithBadge = badge ? message.replace(badge[1], `<span class="tw-inline-block tw-px-2 tw-py-0.5 tw-rounded tw-text-white tw-mr-2 ${badgeColor}">${badge[1].toLowerCase()}</span>`) : message;
+            const messageWithBadge = badge ? message.replace(badge[0], `<span class="tw-inline-block tw-px-2 tw-py-0.5 tw-rounded tw-text-white tw-mr-2 ${badgeColor}">${badge[1].toLowerCase()}</span>`) : message;
 
             const messageWithLinks = messageWithBadge.replace(
                 /(https?:\/\/[^\s]+)/g,
