@@ -36,10 +36,13 @@ const Updates = ({ commits }) => {
             const message = commit.commit.message;
             const commitLink = commit.html_url;
 
-            const badge = message.match(/^[A-Z]+\b/);
+            const badge = message.match(/^(?:[\u{1F195}\u{1F600}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{1F900}-\u{1F9FF}\u{1F300}-\u{1F5FF}\u{1F1E6}-\u{1F1FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}])\s([A-Z]+):/u);
+
             const badgeColor = badgeColors[Math.floor(Math.random() * badgeColors.length)];
 
-            const messageWithLinks = message.replace(
+            const messageWithBadge = badge ? message.replace(badge[0], `<span class="tw-inline-block tw-px-2 tw-py-0.5 tw-rounded tw-text-white tw-mr-2 ${badgeColor}">${badge[1].toLowerCase()}</span>`) : message;
+
+            const messageWithLinks = messageWithBadge.replace(
                 /(https?:\/\/[^\s]+)/g,
                 (url) => `<a href="${url}" target="_blank" rel="noopener noreferrer" class="tw-text-purple-500 tw-hover:text-purple-700">${url}</a>`
             );
@@ -53,11 +56,6 @@ const Updates = ({ commits }) => {
                     )}
                     <li className="tw-p-2 tw-shadow-sm tw-flex tw-flex-items-start">
                         <div className="change-description">
-                            {badge && (
-                                <span className={`tw-inline-block tw-px-2 tw-py-1 tw-rounded tw-text-white tw-mr-2 ${badgeColor}`}>
-                                    {badge}
-                                </span>
-                            )}
                             <h2
                                 className="tw-text-md tw-inline"
                                 dangerouslySetInnerHTML={{ __html: messageWithLinks }}
