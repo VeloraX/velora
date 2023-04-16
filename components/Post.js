@@ -16,9 +16,8 @@ export default function Post({
 }) {
   return (
     <article
-      className={`card post-card h-100 border-0 bg-transparent ${
-        postColumns == 3 ? "post-card-col-4" : ""
-      }`}
+      className={`card post-card h-100 border-0 bg-transparent ${postColumns == 3 ? "post-card-col-4" : ""
+        }`}
     >
       <div className="card-body">
         <Link href={`/blog/${slug}`} className="d-block" title={title}>
@@ -60,19 +59,20 @@ export default function Post({
           {truncateString(description, postColumns == 3 ? 90 : 150)}
         </p>
       </div>
+
       <div className="card-footer border-top-0 bg-transparent p-0">
         <ul className="card-meta list-inline">
           <li className="list-inline-item mt-2">
             <Link
               href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}
-              className="card-meta-author"
+              className="card-meta-author d-flex align-items-center"
               title={`Read all posts by - ${author}`}
             >
               {authors.map(
                 (authorPage, i) =>
                   author.replace(/ /g, "-").toLowerCase() ===
-                    authorPage.authorSlug && (
-                    <span key={i}>
+                  authorPage.authorSlug && (
+                    <span key={i} className="me-2">
                       <Image
                         src={authorPage.authorFrontMatter.image}
                         alt={author}
@@ -82,12 +82,11 @@ export default function Post({
                     </span>
                   )
               )}
-              <i className="d-inline-block ms-2 ps-1 fst-normal">
+              <span className="d-inline-block">
                 by <span>{author.split(" ")[0]}</span>
-              </i>
+              </span>
             </Link>
           </li>
-          <li className="list-inline-item mt-2">•</li>
           <li className="list-inline-item mt-2">
             <ul className="card-meta-tag list-inline">
               {tags.map((t, i) => (
