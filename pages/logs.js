@@ -17,6 +17,16 @@ const badgeColors = [
     'tw-bg-lime-500',
 ];
 
+const getRandomColor = () => {
+    const colors = [
+        "rgba(67, 76, 94, 0.2)",
+        "rgba(76, 86, 106, 0.2)",
+        "rgba(229, 233, 240, 0.2)",
+        "rgba(236, 239, 244, 0.2)",
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
+};
+
 const Updates = ({ commits }) => {
     const [search, setSearch] = useState('');
 
@@ -26,6 +36,9 @@ const Updates = ({ commits }) => {
 
     const renderCommits = (commits) => {
         let currentDate = null;
+
+        // Set a random color for the vertical line
+        const randomColor = getRandomColor();
 
         return commits.map((commit) => {
             const date = new Date(commit.commit.author.date);
@@ -50,16 +63,22 @@ const Updates = ({ commits }) => {
             return (
                 <React.Fragment key={commit.sha}>
                     {isNewDay && (
-                        <li className="tw-py-4">
-                            <h3 className="tw-text-2xl tw-font-bold">{format(date, 'MMMM dd, yyyy')}</h3>
+                        <li className="tw-py-4 tw-relative">
+                            <div className="tw-absolute tw-left-0 tw-top-0 tw-bottom-0 tw-flex tw-items-center">
+                                <div
+                                    className="vertical-gradient"
+                                    style={{ background: `linear-gradient(to bottom, ${randomColor}, ${randomColor})` }}
+                                ></div>
+                            </div>
+                            <h3 className="tw-text-2xl tw-font-bold tw-pl-6">{format(date, 'MMMM dd, yyyy')}</h3>
                         </li>
                     )}
-                    <li className="tw-p-2 tw-shadow-sm tw-flex tw-flex-items-start">
+                    <li className="tw-p-1 tw-flex tw-flex-items-start">
                         <div className="change-description">
-                            <h2
-                                className="tw-text-md tw-inline"
+                            <span
+                                className="tw-inline"
                                 dangerouslySetInnerHTML={{ __html: messageWithLinks }}
-                            ></h2>
+                            ></span>
                             <a
                                 href={commitLink}
                                 target="_blank"
