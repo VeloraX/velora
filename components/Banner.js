@@ -64,7 +64,7 @@ export default function HeroSection() {
                 <div className="tw-flex tw-items-center">
                   <IconArrowRight className="tw-h-5 tw-w-5 tw-text-white tw-opacity-20 tw-mr-2" />
                   <h1 className="tw-text-white tw-text-sm">
-                    npm create velora@latest
+                    <del>npm create velora@latest</del>
                   </h1>
                 </div>
                 <IconClipboardCopy
