@@ -54,10 +54,10 @@ const Updates = ({ commits }) => {
                             <h3 className="tw-text-2xl tw-font-bold">{format(date, 'MMMM dd, yyyy')}</h3>
                         </li>
                     )}
-                    <li className="tw-p-2 tw-shadow-sm tw-flex tw-flex-items-start">
+                    <li className="tw-p-1 tw-shadow-sm tw-flex tw-flex-items-start">
                         <div className="change-description">
                             <h2
-                                className="tw-text-md tw-inline"
+                                className="tw-inline"
                                 dangerouslySetInnerHTML={{ __html: messageWithLinks }}
                             ></h2>
                             <a
