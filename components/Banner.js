@@ -4,106 +4,143 @@ import {
   IconClipboardCopy,
   IconArrowRight,
 } from "@tabler/icons-react";
-
 export default function HeroSection() {
-
-
   return (
-    <section className="tw-bg-transparent tw-py-20 tw-min-w-max">
-      <div className="tw-container tw-mx-auto">
-        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-8 tw-items-start">
-          <div className="tw-w-full tw--ml-24">
-            <h1 className="tw-text-6xl tw-font-bold tw-mb-6">
+    <section className="bg-transparent py-5 min-vw-96">
+      <div className="container">
+        <div className="row align-items-start">
+          <div className="col-12 col-md-6">
+            <h1 className="display-4 font-weight-bold mb-4">
               <b>THIS </b>is{" "}
-              <span className="tw-text-purple-500 tw-font-normal">the </span>{" "}
+              <span className="tw-text-purple-500 font-weight-normal">the </span>{" "}
               style
-              <span className="tw-text-blue-500 tw-font-normal">
+              <span className="tw-text-blue-500 font-weight-normal">
                 <b>Sheet </b>
               </span>
-              <span className="tw-text-green-500">
+              <span className="text-success">
                 <b>
                   <i>for </i>
                 </b>
               </span>
               the{" "}
-              <span className="tw-text-orange-500">
+              <span className="text-warning">
                 <b>modern</b>{" "}
               </span>
-              web
-              <span className="tw-text-pink-500">
-                <b>.</b>
+              we
+              <span className="text-danger">
+                b
               </span>
+              .
             </h1>
-            <p className="tw-mb-10 tw-text-xl">
+            <p className="mb-4">
               Velora is an open-source framework that combines the best of Bulma
               and Tailwind CSS, providing ready-to-use frontend components for
               building responsive and professional web interfaces with ease.
             </p>
-            <div className="tw-flex tw-items-center">
-              <IconCheck
-                icon={IconCheck}
-                className="tw-text-purple-400 tw-mr-2"
-                size={18}
-              />
-              <p className="tw-text-2xl">No CSS knowledge required.</p>
+            <div className="d-flex align-items-center mb-3">
+              <IconCheck size={18} className="text-purple-400 mr-2" />
+              <p>No CSS knowledge required.</p>
             </div>
-            <div className="tw-flex tw-items-center">
-              <IconCheck
-                icon={IconCheck}
-                className="tw-text-orange-500 tw-mr-2"
-                size={18}
-              />
-              <p className="tw-text-2xl">All for free.</p>
+            <div className="d-flex align-items-center mb-3">
+              <IconCheck size={18} className="text-orange-500 mr-2" />
+              <p>All for free.</p>
             </div>{" "}
             <br />
-            <div className="tw-relative tw-h-16 tw-w-96 tw-rounded-md tw-bg-gradient-to-r tw-from-pink-500 tw-via-red-500 tw-to-yellow-500 tw-p-0.5 tw-shadow-xl">
-              <div className="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-between tw-bg-gray-900 tw-rounded-md tw-px-4">
-                <div className="tw-flex tw-items-center">
-                  <IconArrowRight className="tw-h-5 tw-w-5 tw-text-white tw-opacity-20 tw-mr-2" />
-                  <h1 className="tw-text-white tw-text-sm">
-                    <del>npm create velora@latest</del>
-                  </h1>
+            <div className="position-relative h-16 w-75 rounded shadow gradient-border">
+              <div
+                className="position-relative rounded"
+                style={{ padding: "1px" }}
+              >
+                <div
+                  className="d-flex align-items-center justify-content-between bg-dark rounded px-4"
+                  style={{ height: "3rem" }}
+                >
+                  <div className="d-flex align-items-center">
+                    <IconArrowRight className="h-5 w-5 text-white opacity-20 mr-2" />
+                    <h1 className="text-white text-sm">
+                      <del>npm create velora@latest</del>
+                    </h1>
+                  </div>
+                  <IconClipboardCopy
+                    onClick={handleCopyClick}
+                    className="h-5 w-5 text-white opacity-50 cursor-pointer mr-2"
+                  />
                 </div>
-                <IconClipboardCopy
-                  onClick={handleCopyClick}
-                  className="tw-h-5 tw-w-5 tw-text-white tw-opacity-50 tw-cursor-pointer tw-mr-2"
-                />
+                <style>{`
+              .gradient-border::before {
+                content: "";
+                position: absolute;
+                top: -2px;
+                right: -2px;
+                bottom: -2px;
+                left: -2px;
+                border-radius: inherit;
+                background-image: linear-gradient(to right, #f72585, #b5179e, #7209b7, #560bad, #480ca8, #3a0ca3, #3f37c9, #4361ee, #4895ef, #4cc9f0);
+                z-index: -1;
+              }
+            `}</style>
               </div>
             </div>
-            <div className="tw-w-96 tw-mt-4 tw-flex tw-justify-between">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <button className="tw-px-6 tw-py-2 tw-w-44 tw-shadow-xl tw-bg-blue-600 hover:tw-bg-blue-700 tw-text-white tw-font-semibold tw-rounded">
-                  <span>Start Here </span>
+            <div className="w-50 mt-4 d-flex justify-content-between gap-3">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.preventDefault()}
+                style={{
+                  pointerEvents: "none",
+                  cursor: "default",
+                  textDecoration: "none",
+                }}
+              >
+                <button
+                  className="btn btn-primary shadow font-semibold rounded"
+                  title="Disabled!"
+                >
+                  <span>Start Here</span>
                 </button>
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <button className="tw-px-6 tw-py-2 tw-w-44 tw-shadow-xl tw-bg-blue-600 hover:tw-bg-blue-700 tw-text-white tw-font-semibold tw-rounded">
+
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.preventDefault()}
+                style={{
+                  pointerEvents: "none",
+                  cursor: "default",
+                  textDecoration: "none",
+                }}
+              >
+                <button
+                  className="btn btn-primary shadow font-semibold rounded"
+                  title="Disabled!"
+                >
                   <span>Download It</span>
                 </button>
               </a>
             </div>
           </div>
-          <div className="tw-w-full tw-drop-shadow-[0_35px_35px_rgba(0,0,0,0.60)] tw--ml-6">
-            <iframe
-              width="850"
-              height="506"
-              src="https://www.youtube.com/embed/T-Zv73yZ_QI?disablekb=1&fs=0&modestbranding=1&playsinline=1&color=white&iv_load_policy=3"
-              title="Tru shows how its done"
-              allowfullscreen
-              className="tw-mx-auto"
-            ></iframe>
-
-            <p className="tw-text-sm tw-flex tw-justify-end tw-items-end tw-py-12">
+          <div className="col-12 col-md-6">
+            <div className="embed-responsive embed-responsive-16by9">
+              <iframe
+                width="750"
+                height="406"
+                className="embed-responsive-item"
+                src="https://shorturl.at/kJPQU"
+                title="Tru shows how its done"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <p className="text-sm d-flex justify-content-end align-items-end py-3">
               <a
-                href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa21ZYVpRVWZ3MC1mX3pqNWk0N1V0VGdWZHBDZ3xBQ3Jtc0tsYWNINklzYWVMWXB6Tk9LWE5IcFREdk5PNFN3U0hubmwzVmpQWE5mNFhqYnUzRl9ZS21Vd2ZMX0hNOHJ5OGM0OWRLb3JNUzFZZnJydlo0SS1rWTlwOFdsb2lNbEhxcTh2WUJ6clZUbFR2cjV5cHdGVQ&q=https%3A%2F%2Ftwitter.com%2Ftrunarla&v=T-Zv73yZ_QI"
+                href="https://shorturl.at/pxX89"
                 target="_blank"
                 rel="noreferrer"
-                className="tw-inline-flex tw-items-end tw-text-gray-500 tw-text-xs"
+                className="d-inline-flex align-items-end text-gray-500 small"
               >
                 Tru Narla
                 <IconHeartFilled
                   icon={IconHeartFilled}
-                  className="tw-text-red-400 tw-mr-2"
+                  className="text-red-400 ml-2"
                   size={18}
                 />
               </a>
