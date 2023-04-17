@@ -6,6 +6,7 @@ import {
   IconArrowRight,
   IconThumbUp,
 } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function Banner() {
   const [copied, setCopied] = useState(false);
@@ -67,7 +68,21 @@ export default function Banner() {
 
 
             <div className="col-12 col-md-6 w-100">
-              <div className="position-relative h-16 w-75 rounded shadow gradient-border">
+              <div className="position-relative h-16 w-75 rounded shadow" style={{ position: 'relative' }}>
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '-2px',
+                    right: '-2px',
+                    bottom: '-2px',
+                    left: '-2px',
+                    borderRadius: 'inherit',
+                    backgroundImage:
+                      'linear-gradient(to right, #f72585, #b5179e, #7209b7, #560bad, #480ca8, #3a0ca3, #3f37c9, #4361ee, #4895ef, #4cc9f0)',
+                    zIndex: -1,
+                  }}
+                ></div>
+
                 <div
                   className="d-flex gap-2 mb-2 position-absolute"
                   style={{ top: "-1.5rem", left: "calc(100% - 10rem)" }}
@@ -112,8 +127,8 @@ export default function Banner() {
                     style={{ height: "3rem" }}
                   >
                     <div className="d-flex align-items-center">
-                      <IconArrowRight className="h-5 w-5 text-white opacity-20 mr-2" />
-                      <h1 className="text-white text-sm">
+                      <IconArrowRight className="h-2 w-2 opacity-20 tw-mr-3" />
+                      <h1 className="tw-font-sans text-white tw-text-sm">
                         {copied
                           ? "👍 Way to go!"
                           : packageType
@@ -129,20 +144,6 @@ export default function Banner() {
                     )}
                   </div>
                 </div>
-
-                <style>{`
-  .gradient-border::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    bottom: -2px;
-    left: -2px;
-    border-radius: inherit;
-    background-image: linear-gradient(to right, #f72585, #b5179e, #7209b7, #560bad, #480ca8, #3a0ca3, #3f37c9, #4361ee, #4895ef, #4cc9f0);
-    z-index: -1;
-  }
-`}</style>
               </div>
 
               <div className="w-50 mt-4 tw-pb-16 d-flex justify-content-between gap-3">
@@ -192,17 +193,15 @@ export default function Banner() {
                 width="850"
                 height="506"
                 className="embed-responsive-item"
-                src="https://shorturl.at/kJPQU"
+                src="https://www.youtube.com/embed/T-Zv73yZ_QI"
                 title="Tru shows how its done"
                 allowFullScreen
               ></iframe>
             </div>
             <p className="tw-text-sm d-flex justify-content-end align-items-end py-3">
-              <a
-                href="https://shorturl.at/pxX89"
-                target="_blank"
-                rel="noreferrer"
-                className="d-inline-flex align-items-end tw-text-gray-500 small"
+              <span
+                onClick={handleClick}
+                className="d-inline-flex align-items-end tw-text-gray-500 small tw-cursor-pointer"
               >
                 Tru Narla
                 <IconHeartFilled
@@ -210,7 +209,7 @@ export default function Banner() {
                   className="tw-text-red-400"
                   size={16}
                 />
-              </a>
+              </span>
             </p>
           </div>
 
@@ -220,3 +219,6 @@ export default function Banner() {
     </section>
   );
 }
+const handleClick = () => {
+  window.open("https://www.youtube.com/@mewtru?themeRefresh=1", "_blank", "noreferrer");
+};

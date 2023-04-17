@@ -4,27 +4,27 @@
   }
 }
 @mixin mobile {
-  @media(max-width:575px) {
+  @media(max-width:800px) {
     @content;
   }
 }
 @mixin tablet {
-  @media(max-width:767px) {
+  @media(max-width:1280px) {
     @content;
   }
 }
 @mixin desktop {
-  @media(max-width:991px) {
+  @media(max-width:1366) {
     @content;
   }
 }
 @mixin desktop-lg {
-  @media(max-width:1199px) {
+  @media(max-width:1680px) {
     @content;
   }
 }
 @mixin desktop-xl {
-  @media(max-width:1399px) {
+  @media(max-width:1920px) {
     @content;
   }
 }
