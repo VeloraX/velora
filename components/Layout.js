@@ -17,7 +17,7 @@ export default function Layout({
         <meta charSet="utf-8" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=5"
+          content="width=device-width, initial-scale=1.0"
         />
         <title>{metaTitle}</title>
 
