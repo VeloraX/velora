@@ -7,7 +7,7 @@ import { formatDate } from "@/utils/formatDate";
 import { readingTime } from "@/utils/readingTime";
 import { truncateString } from "@/utils/truncateString";
 import {
-  IconBook,
+  IconGitPullRequestDraft,
   IconBrandFacebook,
   IconBrandLinkedin,
   IconBrandPinterest,
@@ -187,7 +187,8 @@ export default function PostPage({
                       </div>
                     </div>
                   </div>
-                  <div></div>
+                  <div>
+                  </div>
                   <br />
 
                   <span className="d-inline-block tw-mb-3 tw-med tw-ml-3.5">
@@ -195,7 +196,7 @@ export default function PostPage({
                   </span>
                   <ul className="social-share icon-box tw-ml-3.5">
                     <li className="d-inline-block tw-me-2 tw-mb-2 tw-bg-blue-400">
-                      <a
+                      <Link
                         href={`https://twitter.com/intent/tweet?text=${title}&url=${pageUrl}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -206,11 +207,11 @@ export default function PostPage({
                             className="tw-w-6 tw-h-6 tw-font-semibold tw-text-white tw-inline-flex tw-items-center"
                           />
                         </i>
-                      </a>
+                      </Link>
                     </li>
 
                     <li className="d-inline-block tw-me-2 tw-mb-2 tw-bg-red-600">
-                      <a
+                      <Link
                         href={`https://www.pinterest.com/pin/create/button/?&text=${title}&url=${pageUrl}&description=${title}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -221,10 +222,10 @@ export default function PostPage({
                             className="tw-w-6 tw-h-6 tw-font-semibold tw-text-white tw-inline-flex tw-items-center"
                           />
                         </i>
-                      </a>
+                      </Link>
                     </li>
                     <li className="d-inline-block tw-me-2 tw-mb-2 tw-bg-blue-500">
-                      <a
+                      <Link
                         href={`https://www.facebook.com/sharer.php?u=${pageUrl}&quote=${title}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -235,11 +236,11 @@ export default function PostPage({
                             className="tw-w-6 tw-h-6 tw-font-semibold tw-text-white tw-inline-flex tw-items-center"
                           />
                         </i>
-                      </a>
+                      </Link>
                     </li>
 
                     <li className="d-inline-block tw-me-2 tw-mb-2 tw-bg-red-500">
-                      <a
+                      <Link
                         href={`https://www.reddit.com/submit?url=${pageUrl}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -250,11 +251,11 @@ export default function PostPage({
                             className="tw-w-6 tw-h-6 tw-font-semibold tw-text-white tw-inline-flex tw-items-center"
                           />
                         </i>
-                      </a>
+                      </Link>
                     </li>
 
                     <li className="d-inline-block tw-me-2 tw-mb-2 tw-bg-blue-600">
-                      <a
+                      <Link
                         href={`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -265,7 +266,7 @@ export default function PostPage({
                             className="tw-w-6 tw-h-6 tw-font-semibold tw-text-white tw-inline-flex tw-items-center"
                           />
                         </i>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -273,6 +274,37 @@ export default function PostPage({
             </div>
           </div>
         </div>
+
+        <div className="alert-container tw-m-24">
+          <div className="alert alert-danger" role="alert">
+            <IconGitPullRequestDraft /> Contribute or
+            <Link
+              href={`https://github.com/VeloraX/velora/blob/main/content/blog/${slug}.md`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="alert-link"
+              style={{
+                background: `linear-gradient(to right, #434C5E, #4C566A, #E5E9F0, #ECEFF4)`,
+                backgroundSize: "94% 0.6px",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "bottom",
+                paddingBottom: "2px",
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                marginLeft: "10px"
+              }}
+            >
+              improve this post
+            </Link>
+          </div>
+        </div>
+
+
+
+
+
+
+
       </section>
       {useScripts("/js/lightense/lightense.min.js", "body", true)}
     </Layout>
