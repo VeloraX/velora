@@ -97,7 +97,6 @@ export default function Header() {
                         : siteConfig.logo
                     }
                     alt={siteConfig.logoText}
-                    placeholder="blur"
                     blurDataURL={
                       mounted && (theme === "dark" || resolvedTheme === "dark")
                         ? siteConfig.logo_light

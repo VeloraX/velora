@@ -2,7 +2,7 @@
   "name": "velora",
   "author": "MIkko",
   "description": "This is a blog where we post about velora, rants and other projects.",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "license": "MIT",
   "private": true,
   "repository": {

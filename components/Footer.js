@@ -3,6 +3,7 @@ import packageJson from "../package.json";
 import siteConfig from "@/config/site.config.json";
 import subscription from "@/config/subscription.json";
 import { IconUserPlus } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function Footer() {
   const [version, setVersion] = useState("");
@@ -100,15 +101,13 @@ export default function Footer() {
               </p>
               <p>
                 Site Version:{" "}
-                <button className="tw-text-neutral-100 tw-text-xs tw-leading-5 tw-font-semibold tw-bg-slate-800/50 tw-rounded-full tw-py-1 tw-px-3 tw-inline-flex tw-items-center tw-space-x-2 tw-hover:bg-slate-400/20 tw-dark:highlight-white/5">
-                  <a
-                    href="https://reflinked.mikko.codes/86h"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    v{version}
-                  </a>
-                </button>
+                <Link
+                  href="/logs"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  v{version}
+                </Link>
               </p>
             </div>
           </div>
