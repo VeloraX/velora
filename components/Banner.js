@@ -189,7 +189,7 @@ export default function Banner() {
               <iframe
                 width="850"
                 height="506"
-                className="embed-responsive-item"
+                className="embed-responsive-item shadow"
                 src="https://www.youtube.com/embed/T-Zv73yZ_QI"
                 title="Tru shows how its done"
                 allowFullScreen

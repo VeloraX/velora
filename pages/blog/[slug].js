@@ -277,7 +277,7 @@ export default function PostPage({
 
         <div className="alert-container tw-m-24">
           <div className="alert alert-danger" role="alert">
-            <IconGitPullRequestDraft /> Contribute or
+            <IconGitPullRequestDraft style={{ color: 'gray' }} /> Contribute or
             <Link
               href={`https://github.com/VeloraX/velora/blob/main/content/blog/${slug}.md`}
               target="_blank"
