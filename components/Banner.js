@@ -4,9 +4,7 @@ import {
   IconHeartFilled,
   IconClipboardCopy,
   IconArrowRight,
-  IconThumbUp,
 } from "@tabler/icons-react";
-import Link from "next/link";
 
 export default function Banner() {
   const [copied, setCopied] = useState(false);
@@ -64,21 +62,21 @@ export default function Banner() {
               <p>All for free.</p>
             </div>{" "}
             <br />
-
-
-
             <div className="col-12 col-md-6 w-100">
-              <div className="position-relative h-16 w-75 rounded shadow" style={{ position: 'relative' }}>
+              <div
+                className="position-relative h-16 w-75 rounded shadow"
+                style={{ position: "relative" }}
+              >
                 <div
                   style={{
-                    position: 'absolute',
-                    top: '-2px',
-                    right: '-2px',
-                    bottom: '-2px',
-                    left: '-2px',
-                    borderRadius: 'inherit',
+                    position: "absolute",
+                    top: "-2px",
+                    right: "-2px",
+                    bottom: "-2px",
+                    left: "-2px",
+                    borderRadius: "inherit",
                     backgroundImage:
-                      'linear-gradient(to right, #f72585, #b5179e, #7209b7, #560bad, #480ca8, #3a0ca3, #3f37c9, #4361ee, #4895ef, #4cc9f0)',
+                      "linear-gradient(to right, #f72585, #b5179e, #7209b7, #560bad, #480ca8, #3a0ca3, #3f37c9, #4361ee, #4895ef, #4cc9f0)",
                     zIndex: -1,
                   }}
                 ></div>
@@ -184,7 +182,6 @@ export default function Banner() {
                 </a>
               </div>
             </div>
-
           </div>
 
           <div className="col-12 col-md-6">
@@ -212,13 +209,15 @@ export default function Banner() {
               </span>
             </p>
           </div>
-
-
         </div>
       </div>
     </section>
   );
 }
 const handleClick = () => {
-  window.open("https://www.youtube.com/@mewtru?themeRefresh=1", "_blank", "noreferrer");
+  window.open(
+    "https://www.youtube.com/@mewtru?themeRefresh=1",
+    "_blank",
+    "noreferrer"
+  );
 };
