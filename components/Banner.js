@@ -24,17 +24,17 @@ export default function Banner() {
   };
 
   return (
-    <section className="bg-transparent py-5 min-vw-96">
+    <section className="bg-transparent tw-py-20 pb-14 min-vw-99">
       <div className="container">
         <div className="row align-items-start">
           <div className="col-12 col-md-6">
             <h1 className="display-4 font-weight-bold mb-4">
               <b>THIS </b>is{" "}
-              <span className="tw-text-purple-500 font-weight-normal">
+              <span className="tw-text-purple-400 font-weight-normal">
                 the{" "}
               </span>{" "}
               style
-              <span className="tw-text-blue-500 font-weight-normal">
+              <span className="tw-text-blue-400 font-weight-normal">
                 <b>Sheet </b>
               </span>
               <span className="text-success">
@@ -43,11 +43,11 @@ export default function Banner() {
                 </b>
               </span>
               the{" "}
-              <span className="text-warning">
+              <span className="tw-text-orange-300">
                 <b>modern</b>{" "}
               </span>
               we
-              <span className="text-danger">b</span>.
+              <span className="tw-text-pink-400">b</span>.
             </h1>
             <p className="mb-4">
               Velora is an open-source framework that combines the best of Bulma
@@ -165,7 +165,8 @@ export default function Banner() {
             </div>
 
 
-            <div className="w-50 mt-4 d-flex justify-content-between gap-3">
+            <div className="w-50 mt-4 tw-pb-16 d-flex justify-content-between gap-3">
+
               <a
                 target="_blank"
                 rel="noopener noreferrer"
