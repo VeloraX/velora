@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   IconCheck,
   IconHeartFilled,
@@ -7,9 +6,7 @@ import {
 } from "@tabler/icons-react";
 
 export default function HeroSection() {
-  const [videoVisible, setVideoVisible] = useState(false);
-  const videoThumbnailUrl =
-    "https://img.youtube.com/vi/T-Zv73yZ_QI/maxresdefault.jpg";
+
 
   return (
     <section className="tw-bg-transparent tw-py-20 tw-min-w-max">
