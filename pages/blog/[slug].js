@@ -15,6 +15,7 @@ import {
   IconBrandTwitter,
   IconCalendarEvent,
   IconClock,
+  IconArtboard,
 } from "@tabler/icons-react";
 import { marked } from "marked";
 import Image from "next/image";
@@ -276,10 +277,10 @@ export default function PostPage({
         </div>
 
         <div className="alert-container tw-m-24">
-          <div className="alert alert-danger" role="alert">
-            <IconGitPullRequestDraft style={{ color: 'gray' }} /> Contribute or
+          <div className="alert alert-light" role="alert">
+            <IconGitPullRequestDraft style={{ color: 'gray' }} />
             <Link
-              href={`https://github.com/VeloraX/velora/blob/main/content/blog/${slug}.md`}
+              href={`https://github.com/VeloraX/velora/edit/main/content/blog/${slug}.md`}
               target="_blank"
               rel="noopener noreferrer"
               className="alert-link"
@@ -294,10 +295,33 @@ export default function PostPage({
                 marginLeft: "10px"
               }}
             >
-              improve this post
+              Improve Post
+            </Link>
+          </div>
+          {' - '}
+          <div className="alert alert-danger" role="alert">
+            <IconArtboard style={{ color: 'gray' }} />
+            <Link
+              href={`https://raw.githubusercontent.com/VeloraX/velora/main/content/blog/${slug}.md`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="alert-link"
+              style={{
+                background: `linear-gradient(to right, #434C5E, #4C566A, #E5E9F0, #ECEFF4)`,
+                backgroundSize: "94% 0.6px",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "bottom",
+                paddingBottom: "2px",
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                marginLeft: "10px"
+              }}
+            >
+              YAML Version
             </Link>
           </div>
         </div>
+
 
 
 
