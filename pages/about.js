@@ -1,4 +1,4 @@
-// import Author from "@/components/Author";
+import Author from "@/components/Author";
 import Layout from "@/components/Layout";
 import PageHeaderBlock from "@/components/PageHeader";
 import { getAuthors } from "@/libs/getAuthors";
